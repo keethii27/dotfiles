@@ -1,0 +1,187 @@
+[[plugins]]
+repo = 'vim-airline/vim-airline'
+hook_add = '''
+let g:airline_theme = 'wombat'
+set laststatus=2
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#wordcount#enabled = 0
+let g:airline#extensions#default#layout = [['a', 'b', 'c'], ['x', 'y', 'z']]
+let g:airline_section_c = '%t'
+let g:airline_section_x = '%{&filetype}'
+let g:airline_section_z = '%3l:%2v %{airline#extensions#ale#get_warning()} %{airline#extensions#ale#get_error()}'
+let g:airline#extensions#ale#error_symbol = ' '
+let g:airline#extensions#ale#warning_symbol = ' '
+let g:airline#extensions#default#section_truncate_width = {}
+let g:airline#extensions#whitespace#enabled = 1
+'''
+
+[[plugins]]
+repo = 'vim-airline/vim-airline-themes'
+
+# [[plugins]]
+# repo = 'itchyny/lightline.vim'
+# depends = ['lightline-buffer', 'material']
+# hook_add = '''
+# set hidden " 保存されていないファイルがあるときでも別のファイルを開くことが出来る
+# set showtabline=2 " タブを表示する
+
+# let g:lightline = {
+#     \ 'colorscheme': 'material_vim',
+#     \ 'component_function': {
+#     \   'bufferinfo': 'lightline#buffer#bufferinfo',
+#     \   'filename': 'FilenameForLightline',
+#     \ },
+#     \ 'tabline': {
+#     \   'left': [ [ 'bufferinfo' ],
+#     \             [ 'separator' ],
+#     \             [ 'bufferbefore', 'buffercurrent', 'bufferafter' ], ],
+#     \   'right': [ [ 'close' ], ],
+#     \ },
+#     \ 'component_expand': {
+#     \   'buffercurrent': 'lightline#buffer#buffercurrent',
+#     \   'bufferbefore': 'lightline#buffer#bufferbefore',
+#     \   'bufferafter': 'lightline#buffer#bufferafter',
+#     \ },
+#     \ 'component_type': {
+#     \   'buffercurrent': 'tabsel',
+#     \   'bufferbefore': 'raw',
+#     \   'bufferafter': 'raw',
+#     \ },
+#     \ 'component': {
+#     \   'separator': '',
+#     \ },
+#     \ }
+
+# let g:lightline_buffer_logo = ' '
+# let g:lightline_buffer_readonly_icon = ''
+# let g:lightline_buffer_modified_icon = '✭'
+# let g:lightline_buffer_git_icon = ' '
+# let g:lightline_buffer_ellipsis_icon = '..'
+# let g:lightline_buffer_expand_left_icon = '◀ '
+# let g:lightline_buffer_expand_right_icon = ' ▶'
+# let g:lightline_buffer_active_buffer_left_icon = ''
+# let g:lightline_buffer_active_buffer_right_icon = ''
+# let g:lightline_buffer_separator_icon = '  '
+# let g:lightline_buffer_enable_devicons = 1 " enable devicons, only support utf-8
+# let g:lightline_buffer_show_bufnr = 1 " lightline-buffer function settings
+# let g:lightline_buffer_fname_mod = ':t' " :help filename-modifiers
+# let g:lightline_buffer_excludes = ['vimfiler'] " hide buffer list
+# let g:lightline_buffer_maxflen = 30 " max file name length
+# let g:lightline_buffer_maxfextlen = 3 " max file extension length
+# let g:lightline_buffer_minflen = 16 " min file name length
+# let g:lightline_buffer_minfextlen = 3 " min file extension length
+# let g:lightline_buffer_reservelen = 20 " reserve length for other component (e.g. info, close)
+
+# function! FilenameForLightline()
+#     return expand('%')
+# endfunction
+# '''
+
+# [[plugins]]
+# repo = 'taohexxx/lightline-buffer'
+
+[[plugins]]# スニペット管理プラグイン
+repo = 'SirVer/ultisnips'
+hook_add = '''
+let g:UltiSnipsExpandTrigger='<c-j>'
+let g:UltiSnipsEditSplit='vertical' " スニペットの編集する時にウィンドウを縦に分割する
+let g:UltiSnipsSnippetDirectories=['UltiSnips', $HOME.'/.config/nvim/UltiSnips']
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+'''
+
+[[plugins]]
+repo = 'honza/vim-snippets'
+
+[[plugins]]# テンプレート
+repo = 'mattn/sonictemplate-vim'
+hook_add = '''
+let g:sonictemplate_vim_template_dir = ['~/.config/nvim/template']
+'''
+
+[[plugins]]
+repo = 'dense-analysis/ale'
+hook_add = '''
+" 保存時のみ実行する
+let g:ale_lint_on_text_changed = 0
+" 左端のシンボルカラムを表示したままにする
+let g:ale_sign_column_always = 1
+" 表示に関する設定
+let g:ale_sign_error = ''
+let g:ale_sign_warning = ''
+let g:airline#extensions#ale#open_lnum_symbol = '('
+let g:airline#extensions#ale#close_lnum_symbol = ')'
+let g:ale_echo_msg_format = '[%linter%]%code: %%s'
+highlight link ALEErrorSign Tag
+highlight link ALEWarningSign StorageClass
+" Ctrl + kで次の指摘へ、Ctrl + jで前の指摘へ移動
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+'''
+
+[[plugins]]# Color Scheme
+repo = 'fatih/molokai'
+hook_source = '''
+colorscheme molokai
+let g:rehash256 = 1
+'''
+
+[[plugins]]# icon表示
+repo = 'ryanoasis/vim-devicons'
+
+[[plugins]]# タグを自動で閉じる
+repo = 'alvan/vim-closetag'
+hook_add = '''
+let g:closetag_filenames = '*.html,*.vue,*.html.erb'
+'''
+
+[[plugins]]# 対となる括弧を追加/削除
+repo = 'jiangmiao/auto-pairs'
+
+[[plugins]]# Git操作
+repo = 'tpope/vim-fugitive'
+
+[[plugins]]# githubをブラウザで開く
+repo = 'ruanyl/vim-gh-line'
+
+[[plugins]]# 複数行を同時に編集
+repo = 'terryma/vim-multiple-cursors'
+
+[[plugins]]# 複数行を一気にコメントアウト<g-c-c>
+repo = 'tpope/vim-commentary'
+
+[[plugins]]# yankする領域をハイライト
+repo = 'machakann/vim-highlightedyank'
+
+[[plugins]]# FZF
+repo = 'junegunn/fzf'
+build = './install --all'
+merged = '0'
+hook_add = '''
+let g:fzf_buffers_jump = 1
+let g:fzf_layout = { 'down': '~40%' }
+'''
+
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+depends = 'fzf'
+hook_add = '''
+command! -bang -nargs=* Rg
+    \ call fzf#vim#grep(
+    \   'rg --line-number --column --no-heading --hidden --color=always --smart-case --glob ''!**/.git/*'' --glob ''!**/node_modules/*'' '.shellescape(<q-args>), 0,
+    \   fzf#vim#with_preview('right:50%:wrap'))
+'''

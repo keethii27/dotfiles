@@ -1,0 +1,28 @@
+[user]
+	name       = edm20627
+	email      = eng00627@gmail.com
+
+[alias]
+	s   = status -sb
+	d   = diff
+	a   = add
+	aa  = add -A
+	b   = branch
+	co  = checkout
+	cob = checkout -b
+	c   = commit
+	cm  = commit -m
+	pso = push origin
+	pl  = pull
+	plo = pull origin
+	f   = fetch
+	fup = fetch upstream
+
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+
+[init]
+	defaultBranch = main

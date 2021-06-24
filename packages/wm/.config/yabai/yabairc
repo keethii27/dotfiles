@@ -1,0 +1,55 @@
+#!/usr/bin/env sh
+
+# global settings
+# マウスがフォーカスに追従する(マウスカーソルが移動する)(on|off)
+# yabai -m config mouse_follows_focus          off
+# フォーカスをマウスに追従させる(autoraise|off)
+# yabai -m config focus_follows_mouse          off
+# 追加ウィンドウの発生箇所(first_child 上、左|second_child 下、右)
+# yabai -m config window_placement             second_child
+# yabai -m config window_topmost               off
+# ウィンドウの影を変更(on|off|float)
+# yabai -m config window_shadow                on
+# yabai -m config window_opacity               off
+# yabai -m config window_opacity_duration      0.0
+# yabai -m config active_window_opacity        1.0
+# yabai -m config normal_window_opacity        0.90
+# yabai -m config window_border                off
+# yabai -m config window_border_width          6
+# yabai -m config active_window_border_color   0xff775759
+# yabai -m config normal_window_border_color   0xff555555
+# yabai -m config insert_feedback_color        0xffd75f5f
+# 分割比率
+# yabai -m config split_ratio                  0.50
+# yabai -m config auto_balance                 off
+# mouseによる即編集
+# yabai -m config mouse_modifier               fn
+# yabai -m config mouse_action1                move
+# yabai -m config mouse_action2                resize
+# yabai -m config mouse_drop_action            swap
+
+# general space settings
+# マネジメント bsp:タイル float:Mac標準
+yabai -m config layout                       bsp
+yabai -m config top_padding                  05
+yabai -m config bottom_padding               05
+yabai -m config left_padding                 05
+yabai -m config right_padding                05
+# ウィンドウ間のスペース
+yabai -m config window_gap                   06
+
+# debug
+yabai -m config debug_output on
+# view the last lines of the error log
+# tail -f /usr/local/var/log/yabai/yabai.err.log
+# view the last lines of the debug log
+# tail -f /usr/local/var/log/yabai/yabai.out.log
+
+# rules
+yabai -m rule --add app="^システム環境設定$" manage=off
+
+# limelight
+killall limelight &> /dev/null
+limelight -c ~/.config/limelight/limelightrc &> /dev/null &
+
+echo "yabai configuration loaded.."

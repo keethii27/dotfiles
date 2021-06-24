@@ -1,0 +1,25 @@
+add_newline = true
+
+[character]
+# success_symbol = "🦄 "
+# error_symbol = "🥺 "
+
+[git_branch]
+symbol = "🌱 "
+
+[git_status]
+style = "bold white"
+conflicted = " 🏳"
+ahead = " 🏎💨 "
+behind =" 😰 "
+diverged = " 😵 "
+untracked = " 🤷‍ "
+stashed = " 📦 "
+modified = " 📝 "
+staged = '[++\($count\)](green)'
+renamed = " 👅 "
+deleted = " 🗑 "
+
+[directory]
+truncation_length = 100
+truncate_to_repo = false

@@ -1,0 +1,95 @@
+#------------------------------------------------------------
+# モニター操作
+#------------------------------------------------------------
+# モニターを選択する
+alt - 1  : yabai -m display --focus 1
+alt - 2 : yabai -m display --focus 2
+
+# ウィンドウをモニターに移動する
+alt + shift - 1  : yabai -m window --display 1; yabai -m display --focus 1
+alt + shift - 2  : yabai -m window --display 2; yabai -m display --focus 2
+
+#------------------------------------------------------------
+# ウィンドウの選択・操作
+#------------------------------------------------------------
+# ウィンドウを選択する
+alt - j : yabai -m window --focus next
+alt - k : yabai -m window --focus prev
+alt - tab :  yabai -m window --focus recent
+
+# ウィンドウを入れ替える
+alt + shift - h : yabai -m window --swap west
+alt + shift - j : yabai -m window --swap south
+alt + shift - k : yabai -m window --swap north
+alt + shift - l : yabai -m window --swap east
+
+# ウィンドウを閉じる
+alt - c : yabai -m window --close
+
+# ウィンドウを挿入
+alt - i : yabai -m window --insert east
+alt + shift - i : yabai -m window --insert south
+
+# Applications open
+alt - return : alacritty --working-directory $HOME/src/github.com/edm20627
+alt - 0 : open -n /Applications/Google\ Chrome.app
+
+#------------------------------------------------------------
+# ウィンドウのサイズ調整
+#------------------------------------------------------------
+# ウィンドウサイズを全て等しくする
+alt - z : yabai -m space --balance
+
+# ウィンドウのサイズを増やす
+alt - a : yabai -m window --resize left:-40:0 \
+       || yabai -m window --resize right:-40:0
+alt - s : yabai -m window --resize bottom:0:40 \
+       || yabai -m window --resize top:0:40
+alt - w : yabai -m window --resize top:0:-40 \
+       || yabai -m window --resize bottom:0:-40
+alt - d : yabai -m window --resize right:40:0 \
+       || yabai -m window --resize left:40:0
+
+#------------------------------------------------------------
+# レイアウトの設定
+#------------------------------------------------------------
+# レイアウト変更
+alt - b : yabai -m space --layout bsp
+alt - f : yabai -m space --layout float
+
+# ----------------------------------------------------------
+#   float 時のレイアウト操作
+# ----------------------------------------------------------
+# フルスクリーンにする
+alt - up    : yabai -m window --grid 1:1:0:0:1:1
+
+# 左半分にする
+alt - left  : yabai -m window --grid 1:2:0:0:1:1
+
+# 右半分にする
+alt - right : yabai -m window --grid 1:2:1:0:1:1
+
+#------------------------------------------------------------
+#   bsp 時のレイアウト操作
+#------------------------------------------------------------
+# ウインドウの並びを回転する
+alt - r : yabai -m space --rotate 90
+
+# Y軸方向で反転する
+alt - y : yabai -m space --mirror y-axis
+
+# Y軸方向で反転する
+alt - x : yabai -m space --mirror x-axis
+
+# 親レイアウト方向で伸ばす
+alt - l : yabai -m window --toggle zoom-parent
+
+# フルスクリーンにする
+alt - space : yabai -m window --toggle zoom-fullscreen
+
+# 縦分割にする
+alt - e : yabai -m window --toggle split
+
+# 画面中央に表示する
+alt - t : yabai -m window --toggle float;\
+          yabai -m window --grid 12:12:1:1:10:10

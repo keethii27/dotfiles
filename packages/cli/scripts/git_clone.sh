@@ -14,10 +14,11 @@ do
     fi
 done
 
-ghq get gohandson/accountbook-ja
-ghq get gohandson/gacha-ja
-ghq get gohandson/goroutine-ja
-ghq get gohandson/testing-ja
-ghq get reireias/dotfiles
-ghq get sasa-nori/nyaitter
-ghq get tenntenn/gohandson
+ghq get github.com/Jimeux/go-samples
+ghq get github.com/gohandson/accountbook-ja
+ghq get github.com/gohandson/gacha-ja
+ghq get github.com/gohandson/goroutine-ja
+ghq get github.com/gohandson/testing-ja
+ghq get github.com/reireias/dotfiles
+ghq get github.com/sasa-nori/nyaitter
+ghq get github.com/tenntenn/gohandson

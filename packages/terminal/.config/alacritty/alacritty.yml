@@ -5,11 +5,15 @@ shell:
 
 live_config_reload: true
 
+window:
+  padding:
+    x: 4
+    y: 4
+
 background_opacity: 0.85
 
 key_bindings:
-  - { key: J, mods: Control, action: ScrollPageDown }
-  - { key: K, mods: Control, action: ScrollPageUp }
+  - { key: Backslash, mods: Alt, chars: "\x5c" }
 
 font:
   normal:

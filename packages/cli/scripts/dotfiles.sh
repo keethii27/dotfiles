@@ -60,14 +60,16 @@ if [ "$(dscl . -read ~/ UserShell)" = "UserShell: /bin/bash" ]; then
     chsh -s /bin/zsh
 fi
 
-if ! is_file /usr/local/bin/brew; then
+# if ! is_file /usr/local/bin/brew; then
+# M1から変更になった？
+if ! is_file /opt/homebrew/bin/brew; then
     log 'Setup Homebrew'
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     brew doctor
 
-    chmod 755 /usr/local/share/zsh/site-functions
-    chmod 755 /usr/local/share/zsh
-    chmod 755 /usr/local/bin
+    # chmod 755 /usr/local/share/zsh/site-functions
+    # chmod 755 /usr/local/share/zsh
+    # chmod 755 /usr/local/bin
 fi
 
 ensure_dir "$GIT_CLONE_PATH"
@@ -116,6 +118,8 @@ for plugin in $(asdf plugin list); do
         fi
 
         log "Install runtime: $plugin"
+        # ruby 2.6.3 の場合は下記コマンド
+        # RUBY_CFLAGS=-DUSE_FFI_CLOSURE_ALLOC asdf install ruby
         asdf install "$plugin"
     fi
 done
@@ -147,16 +151,16 @@ if ! is_dir "$tpm_path"; then
     git clone https://github.com/tmux-plugins/tpm "$tpm_path"
 fi
 
-limelight_path=/usr/local/bin/limelight
-if ! is_file "$limelight_path"; then
-    log 'Setup limelight'
-    git clone https://github.com/koekeishiya/limelight
-    cd limelight
-    make
-    mv ./bin/limelight /usr/local/bin/limelight
-    cd ../
-    rm -rf limelight
-fi
+# limelight_path=/usr/local/bin/limelight
+# if ! is_file "$limelight_path"; then
+#     log 'Setup limelight'
+#     git clone https://github.com/koekeishiya/limelight
+#     cd limelight
+#     make
+#     mv ./bin/limelight /usr/local/bin/limelight
+#     cd ../
+#     rm -rf limelight
+# fi
 
 log 'Configuring macOS default settings'
 # 隠しファイルを表示する

@@ -22,14 +22,22 @@ brew "ghq"
 brew "hub"
 brew "openssl"
 brew "shellcheck"
-brew "fswatch" # docker-sync gem
-brew "unison" # docker-sync gem
-tap "koekeishiya/formulae"
-brew "yabai"
-brew "skhd"
+brew "nkf"
+# brew "fswatch" # docker-sync gem
+# brew "unison" # docker-sync gem
+# "shared-mine-info" # mimemagic gem
+# tap "koekeishiya/formulae"
+# brew "yabai"
+# brew "skhd"
 tap "heroku/brew"
 brew "heroku"
 # brew "rbenv"
+# brew "ruby-build"
+# brew "ndenv"
+# brew "node-build"
+# brew "yarn"
+# brew "goenv", args: ["HEAD"]
+# brew "mysql@5.7"
 # brew "lf"
 # brew "htop"
 # brew "ncdu"
@@ -62,7 +70,7 @@ tap "jason0x43/homebrew-neovim-nightly"
 cask "neovim-nightly"
 tap "homebrew/cask-fonts"
 cask "font-hack-nerd-font"
-# cask "sequel-pro"
+cask "sequel-pro"
 # cask "mysqlworkbench" バージョンが新しすぎるためてブラウザからダウンロード(6.3.10)
 # cask "sourcetree"
 # cask "vagrant"
@@ -70,6 +78,6 @@ cask "font-hack-nerd-font"
 # cask "virtualbox"
 # cask "spectacle"
 
-#  mas "LINE", id: 539883307
-#  mas "Microsoft OneNote", id: 784801555
-#  mas "Duplicate Photos Fixer Pro", id: 963642514
+mas "LINE", id: 539883307
+mas "Microsoft OneNote", id: 784801555
+mas "Duplicate Photos Fixer Pro", id: 963642514

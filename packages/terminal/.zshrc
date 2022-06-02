@@ -99,11 +99,28 @@ export GIT_CLONE_PATH="$HOME"/src/github.com/edm20627
 export XDG_CONFIG_HOME=~/.config
 
 # golang
-GOROOT="$(go env GOROOT)"
-export GOROOT
-GOPATH=$(go env GOPATH)
-export GOPATH
-export PATH=$PATH:$GOPATH/bin
+# GOROOT="$(go env GOROOT)"
+# export GOROOT
+# GOPATH=$(go env GOPATH)
+# export GOPATH
+# export PATH=$PATH:$GOPATH/bin
+
+# # goenv
+# export GOENV_ROOT=$HOME/.goenv
+# export PATH="$GOENV_ROOT/bin:$PATH"
+# eval "$(goenv init -)"
+# export PATH="$GOROOT/bin:$PATH"
+# export PATH="$PATH:$GOPATH/bin"
+
+# # rbenv
+# eval "$(rbenv init -)"
+
+# # ndenv
+# export PATH=$PATH:$HOME/.ndenv/bin
+# eval "$(ndenv init -)"
+
+# # openssl
+# export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 
 # function {{{
 # PRをブラウザで開く

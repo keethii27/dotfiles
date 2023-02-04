@@ -114,12 +114,13 @@ is_runtime_versions_changed () {
 for plugin in $(asdf plugin list); do
     if is_runtime_versions_changed "$plugin"; then
         if [ "$plugin" = nodejs ]; then log "Import release team keyring for Node.JS"
-            bash -c '${ASDF_DATA_DIR:=$HOME/.asdf}/plugins/nodejs/bin/import-release-team-keyring'
+            # 不要？
+            # bash -c '${ASDF_DATA_DIR:=$HOME/.asdf}/plugins/nodejs/bin/import-release-team-keyring'
         fi
 
         log "Install runtime: $plugin"
         # ruby 2.6.3 の場合は下記コマンド
-        # RUBY_CFLAGS=-DUSE_FFI_CLOSURE_ALLOC asdf install ruby
+        RUBY_CFLAGS=-DUSE_FFI_CLOSURE_ALLOC asdf install ruby
         asdf install "$plugin"
     fi
 done

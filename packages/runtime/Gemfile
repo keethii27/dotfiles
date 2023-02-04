@@ -8,3 +8,12 @@ gem 'docker-sync'
 gem 'neovim'
 gem 'robocop'
 gem 'solargraph'
+# デバック
+gem 'ruby-debug-ide'
+gem 'debase'
+# robocop用
+gem 'activesupport'
+gem 'rubocop-performance'
+gem 'rubocop-rails'
+gem 'rubocop-rspec'
+gem 'rubocop-rake'

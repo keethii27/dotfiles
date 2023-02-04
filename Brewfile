@@ -23,9 +23,9 @@ brew "hub"
 brew "openssl"
 brew "shellcheck"
 brew "nkf"
-# brew "fswatch" # docker-sync gem
-# brew "unison" # docker-sync gem
-# "shared-mine-info" # mimemagic gem
+brew "fswatch" # docker-sync gem
+brew "unison" # docker-sync gem
+brew "shared-mime-info" # mimemagic gem
 # tap "heroku/brew"
 # brew "heroku"
 # brew "rbenv"
@@ -76,6 +76,10 @@ cask "font-hack-nerd-font"
 # cask "vagrant-manager"
 # cask "virtualbox"
 # cask "spectacle"
+# cask "mapture" homebrewからinstallできなくなった
+repo = "lencx/chatgpt"
+tap repo, "https://github.com/#{repo}.git"
+cask "chatgpt", args: { "no-quarantine": true }
 
 #  mas "LINE", id: 539883307
 #  mas "Microsoft OneNote", id: 784801555

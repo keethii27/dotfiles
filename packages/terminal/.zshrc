@@ -61,8 +61,12 @@ setopt AUTO_PARAM_KEYS
 # }}}
 
 # asdf
-if [[ -f $(brew --prefix asdf)/asdf.sh ]]; then
-    . "$(brew --prefix asdf)"/asdf.sh
+# バージョンによる
+# if [[ -f $(brew --prefix asdf)/asdf.sh ]]; then
+#     . "$(brew --prefix asdf)"/asdf.sh
+# fi
+if [[ -f $(brew --prefix asdf)/libexec/asdf.sh ]]; then
+    . "$(brew --prefix asdf)"/libexec/asdf.sh
 fi
 # }}}
 

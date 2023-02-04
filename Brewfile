@@ -26,9 +26,6 @@ brew "nkf"
 # brew "fswatch" # docker-sync gem
 # brew "unison" # docker-sync gem
 # "shared-mine-info" # mimemagic gem
-# tap "koekeishiya/formulae"
-# brew "yabai"
-# brew "skhd"
 # tap "heroku/brew"
 # brew "heroku"
 # brew "rbenv"

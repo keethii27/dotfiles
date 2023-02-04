@@ -151,17 +151,6 @@ if ! is_dir "$tpm_path"; then
     git clone https://github.com/tmux-plugins/tpm "$tpm_path"
 fi
 
-# limelight_path=/usr/local/bin/limelight
-# if ! is_file "$limelight_path"; then
-#     log 'Setup limelight'
-#     git clone https://github.com/koekeishiya/limelight
-#     cd limelight
-#     make
-#     mv ./bin/limelight /usr/local/bin/limelight
-#     cd ../
-#     rm -rf limelight
-# fi
-
 log 'Configuring macOS default settings'
 # 隠しファイルを表示する
 defaults write com.apple.finder AppleShowAllFiles -boolean true

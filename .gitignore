@@ -1,4 +1,3 @@
 .DS_Store
 undo
 Brewfile.lock.json
-packages/terminal/.tmux/plugins/

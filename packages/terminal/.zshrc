@@ -93,9 +93,6 @@ function chpwd() {
 # script
 export PATH=$PATH:$HOME/scripts
 
-# tmux script
-export PATH=$PATH:$HOME/.tmux/bin
-
 # my git repository
 export GIT_CLONE_PATH="$HOME"/src/github.com/keethii27
 

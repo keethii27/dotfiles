@@ -146,12 +146,6 @@ pip3 install --user pynvim
 npm install -g neovim
 fi
 
-tpm_path=~/.tmux/plugins/tpm
-if ! is_dir "$tpm_path"; then
-    log 'Setup tpm'
-    git clone https://github.com/tmux-plugins/tpm "$tpm_path"
-fi
-
 log 'Configuring macOS default settings'
 # 隠しファイルを表示する
 defaults write com.apple.finder AppleShowAllFiles -boolean true

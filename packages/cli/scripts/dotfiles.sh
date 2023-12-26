@@ -2,7 +2,7 @@
 
 set -e
 
-GIT_CLONE_PATH=~/src/github.com/edm20627
+GIT_CLONE_PATH=~/src/github.com/keethii27
 STOW_PACKAGES_PATH="$GIT_CLONE_PATH"/dotfiles/packages
 
 skip_apps=
@@ -77,7 +77,7 @@ ensure_dir "$GIT_CLONE_PATH"
 if ! is_dir "$GIT_CLONE_PATH"/dotfiles; then
     log 'Clone dotfiles'
     cd "$GIT_CLONE_PATH"
-    git clone https://github.com/edm20627/dotfiles.git
+    git clone https://github.com/keethii27/dotfiles.git
 fi
 
 if [ ! "$skip_apps" ]; then
@@ -127,23 +127,23 @@ done
 
 gemfile_path=~/Gemfile
 if is_file "$gemfile_path" && [ ! "$gem" ]; then
-    log 'Install gem'
-    ~/.asdf/shims/gem install bundler
-    ~/.asdf/shims/bundle install
+log 'Install gem'
+~/.asdf/shims/gem install bundler
+~/.asdf/shims/bundle install
 fi
 
 dein_cache_path=~/.cache/dein
 if ! is_dir "$dein_cache_path"; then
-    log 'Setup dein.vim'
-    curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
-    sh ./installer.sh ~/.cache/dein
-    rm installer.sh
+log 'Setup dein.vim'
+curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
+sh ./installer.sh ~/.cache/dein
+rm installer.sh
 
-    log 'Install neovim setup'
-    pip3 install --upgrade pip
-    pip3 install --user pynvim
-    # ~/.asdf/shims/gem install neovim # bundle installで実行済み
-    npm install -g neovim
+log 'Install neovim setup'
+pip3 install --upgrade pip
+pip3 install --user pynvim
+# ~/.asdf/shims/gem install neovim # bundle installで実行済み
+npm install -g neovim
 fi
 
 tpm_path=~/.tmux/plugins/tpm

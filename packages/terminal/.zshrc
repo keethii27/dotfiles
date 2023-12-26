@@ -97,7 +97,7 @@ export PATH=$PATH:$HOME/scripts
 export PATH=$PATH:$HOME/.tmux/bin
 
 # my git repository
-export GIT_CLONE_PATH="$HOME"/src/github.com/edm20627
+export GIT_CLONE_PATH="$HOME"/src/github.com/keethii27
 
 # neovim
 export XDG_CONFIG_HOME=~/.config

@@ -2,7 +2,7 @@
 
 set -e
 
-GIT_CLONE_PATH=~/src/github.com/edm20627
+GIT_CLONE_PATH=~/src/github.com/keethii27
 REPOSITORIES='docker_tmp go_chat go_mosaic_app go_playground go_study_api gopherdojo-studyroom minna_no_go_gengo'
 LENGTH=$(echo "$REPOSITORIES" | tr ' ' '\n' | wc -l)
 
@@ -10,9 +10,9 @@ for i in $(seq "$LENGTH")
 do
     repository=$(echo "$REPOSITORIES" | cut -d ' ' -f "$i")
     if [ ! -d "$GIT_CLONE_PATH"/"$repository" ]; then
-        echo git clone edm20627/"$repository"
+        echo git clone keethii27/"$repository"
         cd "$GIT_CLONE_PATH"
-        git clone https://edm20627@github.com/edm20627/"$repository".git
+        git clone https://keethii27@github.com/keethii27/"$repository".git
     fi
 done
 

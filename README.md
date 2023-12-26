@@ -1,5 +1,5 @@
 # dotfiles
 
 ```
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/edm20627/dotfiles/main/packages/cli/scripts/dotfiles.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/keethii27/dotfiles/main/packages/cli/scripts/dotfiles.sh)"
 ```

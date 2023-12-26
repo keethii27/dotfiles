@@ -2,7 +2,7 @@ export FZF_DEFAULT_COMMAND="rg --files --hidden -l --glob '!**/.git/*' --glob '!
 export FZF_DEFAULT_OPTS="-m --height 50% --reverse --ansi"
 
 function is_in_git_repo() {
-  git rev-parse HEAD > /dev/null 2>&1
+    git rev-parse HEAD > /dev/null 2>&1
 }
 
 # Ctrl + R = history search
@@ -59,8 +59,8 @@ bindkey '^E' fzf-cdr
 
 # fzf + git switch
 function fgs {
-  local branches branch
-  branches=$(git --no-pager branch -vv --color=always) &&
-  branch=$(echo "$branches" | fzf --preview=) &&
-  git switch "$(echo "$branch" | awk '{print $1}' | sed "s/.* //")"
+    local branches branch
+    branches=$(git --no-pager branch -vv --color=always) &&
+    branch=$(echo "$branches" | fzf --preview=) &&
+    git switch "$(echo "$branch" | awk '{print $1}' | sed "s/.* //")"
 }

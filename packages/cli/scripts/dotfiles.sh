@@ -90,59 +90,25 @@ log 'Link dotfiles'
 # shellcheck disable=SC2046
 stow -vd "$STOW_PACKAGES_PATH" -t ~ $(ls $STOW_PACKAGES_PATH)
 
-awk '{print $1}' ~/.tool-versions | while IFS= read -r plugin; do
-    if ! is_dir ~/.asdf/plugins/"$plugin"; then
-        asdf plugin add "$plugin"
-    fi
-done
-
-is_runtime_versions_changed () {
-    plugin="$1"
-    specified=$(grep "$plugin" ~/.tool-versions | awk '{$1=""; print $0}')
-    installed=$(asdf list "$plugin" 2>&1)
-
-    is_changed=
-    for version in $specified; do
-        match=$(echo "$installed" | grep "$version")
-        [ -z "$match" ] && is_changed=1
-    done
-
-    [ "$is_changed" ]
-}
-
-for plugin in $(asdf plugin list); do
-    if is_runtime_versions_changed "$plugin"; then
-        if [ "$plugin" = nodejs ]; then log "Import release team keyring for Node.JS"
-            # 不要？
-            # bash -c '${ASDF_DATA_DIR:=$HOME/.asdf}/plugins/nodejs/bin/import-release-team-keyring'
-        fi
-
-        log "Install runtime: $plugin"
-        # ruby 2.6.3 の場合は下記コマンド
-        RUBY_CFLAGS=-DUSE_FFI_CLOSURE_ALLOC asdf install ruby
-        asdf install "$plugin"
-    fi
-done
-
-gemfile_path=~/Gemfile
-if is_file "$gemfile_path" && [ ! "$gem" ]; then
-log 'Install gem'
-~/.asdf/shims/gem install bundler
-~/.asdf/shims/bundle install
-fi
+# gemfile_path=~/Gemfile
+# if is_file "$gemfile_path" && [ ! "$gem" ]; then
+#     log 'Install gem'
+#     ~/.asdf/shims/gem install bundler
+#     ~/.asdf/shims/bundle install
+# fi
 
 dein_cache_path=~/.cache/dein
 if ! is_dir "$dein_cache_path"; then
-log 'Setup dein.vim'
-curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
-sh ./installer.sh ~/.cache/dein
-rm installer.sh
+    log 'Setup dein.vim'
+    curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
+    sh ./installer.sh ~/.cache/dein
+    rm installer.sh
 
-log 'Install neovim setup'
-pip3 install --upgrade pip
-pip3 install --user pynvim
-# ~/.asdf/shims/gem install neovim # bundle installで実行済み
-npm install -g neovim
+    log 'Install neovim setup'
+    pip3 install --upgrade pip
+    pip3 install --user pynvim
+    # ~/.asdf/shims/gem install neovim # bundle installで実行済み
+    npm install -g neovim
 fi
 
 log 'Configuring macOS default settings'

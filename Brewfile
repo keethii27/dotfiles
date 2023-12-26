@@ -1,87 +1,92 @@
 cask_args appdir: "/Applications"
 
-brew "mas"
-brew "mackup"
+# backup
+# brew "mas"
+# brew "mackup"
+
+# util command
 brew "coreutils"
 brew "curl"
-brew "git"
-brew "asdf"
 brew "tree"
-brew "npm"
-brew "bat"
-brew "exa"
-brew "fzf"
+brew "watch"
 brew "grep"
 brew "ripgrep"
 brew "jq"
-brew "starship"
-brew "stow"
-brew "tealdeer"
-brew "tmux"
-brew "ghq"
-brew "hub"
-brew "openssl"
-brew "shellcheck"
 brew "nkf"
-brew "fswatch" # docker-sync gem
-brew "unison" # docker-sync gem
-brew "shared-mime-info" # mimemagic gem
-# tap "heroku/brew"
-# brew "heroku"
-# brew "rbenv"
-# brew "ruby-build"
+brew "tealdeer"
+brew "fzf"
+brew "bat"
+brew "exa"
+brew "zoxide"
+
+# cli command
+brew "awscli"
+brew "kubectl"
+
+# git
+brew "git"
+brew "ghq"
+tap "github/gh"
+brew "gh"
+
+# prompt
+brew "starship"
+
+# dotfiles
+brew "stow"
+brew "shellcheck"
+
+# package manager
+# brew "npm"
+# brew "yarn"
+# brew "volta"
 # brew "ndenv"
 # brew "node-build"
-# brew "yarn"
-# brew "goenv", args: ["HEAD"]
+# brew "goenv"
+# brew "rbenv"
+# brew "ruby-build"
+
+# application
+brew "openssl"
+# brew "postgresql@14"
 # brew "mysql@5.7"
-# brew "postgresql"
-# brew "lf"
-# brew "htop"
-# brew "ncdu"
-# brew "zoxide"
-# tap "github/gh"
-# brew "gh"
-# tap "cjbassi/ytop"
-# brew "ytop"
-# tap "jesseduffield/lazydocker"
-# brew "lazydocker"
+# tap "heroku/brew"
+# brew "heroku"
+
+# kubenates
+brew "kustomize"
+brew "stern"
+
+# other
+# brew "fswatch" # docker-sync gem
+# brew "unison" # docker-sync gem
+# brew "shared-mime-info" # mimemagic gem
 
 # cask "dropbox"
-# cask "alacritty"
 cask "iterm2"
-cask "alfred"
 cask "google-chrome"
 cask "google-japanese-ime"
 # cask "firefox"
-# cask "insomnia"
-cask "slack"
-cask "visual-studio-code"
-# cask "zoom"
-# cask "appcleaner"
-cask "docker"
+cask "alfred"
 cask "clipy"
-# cask "kindle"
-# cask "gyazo"
-# cask "ngrok"
-# tap "jason0x43/homebrew-neovim-nightly"
-tap "austinliuigi/brew-neovim-nightly", "https://github.com/austinliuigi/brew-neovim-nightly.git"
-cask "neovim-nightly"
-tap "homebrew/cask-fonts"
-cask "font-hack-nerd-font"
+cask "visual-studio-code"
+cask "tableplus"
 # cask "sequel-pro"
-# cask "tableplus"
 # cask "mysqlworkbench" バージョンが新しすぎるためてブラウザからダウンロード(6.3.10)
+# cask "slack"
+cask "zoom"
+# cask "docker"
 # cask "sourcetree"
-# cask "vagrant"
-# cask "vagrant-manager"
-# cask "virtualbox"
-# cask "spectacle"
+# cask "ngrok"
+# cask "kindle"
+# cask "appcleaner"
 # cask "mapture" homebrewからinstallできなくなった
-repo = "lencx/chatgpt"
-tap repo, "https://github.com/#{repo}.git"
-cask "chatgpt", args: { "no-quarantine": true }
+# tap "jason0x43/homebrew-neovim-nightly"
+# tap "austinliuigi/brew-neovim-nightly", "https://github.com/austinliuigi/brew-neovim-nightly.git"
+# cask "neovim-nightly"
+# tap "homebrew/cask-fonts"
+# cask "font-hack-nerd-font"
 
-#  mas "LINE", id: 539883307
-#  mas "Microsoft OneNote", id: 784801555
-#  mas "Duplicate Photos Fixer Pro", id: 963642514
+# mas "LINE", id: 539883307
+# mas "Microsoft OneNote", id: 784801555
+# mas "Duplicate Photos Fixer Pro", id: 963642514

@@ -86,7 +86,6 @@ if [ ! "$skip_apps" ]; then
 fi
 
 log 'Link dotfiles'
-ensure_dir ~/.config/alacritty
 
 # shellcheck disable=SC2046
 stow -vd "$STOW_PACKAGES_PATH" -t ~ $(ls $STOW_PACKAGES_PATH)

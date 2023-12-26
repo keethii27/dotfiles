@@ -100,15 +100,15 @@ stow -vd "$STOW_PACKAGES_PATH" -t ~ $(ls $STOW_PACKAGES_PATH)
 dein_cache_path=~/.cache/dein
 if ! is_dir "$dein_cache_path"; then
     log 'Setup dein.vim'
-    curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
+    curl https://raw.githubusercontent.com/Shougo/dein-installer.vim/master/installer.sh > installer.sh
     sh ./installer.sh ~/.cache/dein
     rm installer.sh
 
     log 'Install neovim setup'
-    pip3 install --upgrade pip
-    pip3 install --user pynvim
+    # pip3 install --upgrade pip
+    # pip3 install --user pynvim
     # ~/.asdf/shims/gem install neovim # bundle installで実行済み
-    npm install -g neovim
+    # npm install -g neovim
 fi
 
 log 'Configuring macOS default settings'

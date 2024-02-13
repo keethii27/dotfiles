@@ -37,13 +37,13 @@ brew "stow"
 brew "shellcheck"
 
 # package manager
-# brew "npm"
+brew "npm"
 # brew "yarn"
-# brew "volta"
+brew "volta"
 # brew "ndenv"
 # brew "node-build"
-# brew "goenv"
-# brew "rbenv"
+brew "goenv"
+brew "rbenv"
 # brew "ruby-build"
 
 # application
@@ -52,6 +52,7 @@ brew "openssl"
 # brew "mysql@5.7"
 # tap "heroku/brew"
 # brew "heroku"
+brew "neovim"
 
 # kubenates
 brew "kustomize"
@@ -60,7 +61,7 @@ brew "stern"
 # other
 # brew "fswatch" # docker-sync gem
 # brew "unison" # docker-sync gem
-# brew "shared-mime-info" # mimemagic gem
+brew "shared-mime-info" # mimemagic gem
 
 # cask "dropbox"
 cask "iterm2"
@@ -75,9 +76,9 @@ cask "tableplus"
 # cask "mysqlworkbench" バージョンが新しすぎるためてブラウザからダウンロード(6.3.10)
 # cask "slack"
 cask "zoom"
-# cask "docker"
+cask "docker"
 # cask "sourcetree"
-# cask "ngrok"
+cask "ngrok"
 # cask "kindle"
 # cask "appcleaner"
 # cask "mapture" homebrewからinstallできなくなった

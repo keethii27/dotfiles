@@ -90,8 +90,8 @@ export PATH="$GOENV_ROOT/bin:$PATH"
 eval "$(goenv init -)"
 export PATH="$GOROOT/bin:$PATH"
 export PATH="$PATH:$GOPATH/bin"
-# # rbenv
-# eval "$(rbenv init -)"
+# rbenv
+eval "$(rbenv init -)"
 # # ndenv
 # export PATH=$PATH:$HOME/.ndenv/bin
 # eval "$(ndenv init -)"

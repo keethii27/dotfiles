@@ -26,3 +26,7 @@ alias fzf='fzf --preview "bat --color=always --style=header,grid --line-range :1
 
 # script
 alias cdrepo=". cdrepo"
+
+# kubectl
+alias k="kubectl"
+

@@ -26,3 +26,5 @@
 
 [init]
 	defaultBranch = main
+[pull]
+	autostash = true

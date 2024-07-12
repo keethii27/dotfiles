@@ -31,8 +31,9 @@ zinit ice wait'0' lucid; zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-autosuggestions
 
 ## 既存の cd をオーバライドして強化したコマンド
-zinit light b4b4r07/enhancd
-export ENHANCD_FILTER=fzf
-export ENHANCD_ENABLE_DOUBLE_DOT=false
-export ENHANCD_ENABLE_SINGLE_DOT=false
-export ENHANCD_ENABLE_HOME=false
+# osをアップグレードしてうまくうごかなくなったのでコメントアウト
+# zinit light b4b4r07/enhancd
+# export ENHANCD_FILTER=fzf
+# export ENHANCD_ENABLE_DOUBLE_DOT=false
+# export ENHANCD_ENABLE_SINGLE_DOT=false
+# export ENHANCD_ENABLE_HOME=false

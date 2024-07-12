@@ -98,6 +98,12 @@ eval "$(rbenv init -)"
 # # volta
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
+# kubectl
+source <(kubectl completion zsh)
+export USE_GKE_GCLOUD_AUTH_PLUGIN=True
+# gcloud
+source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 
 # function
 # PRをブラウザで開く

@@ -22,6 +22,7 @@ brew "zoxide"
 # cli command
 brew "awscli"
 brew "kubectl"
+brew "terraform"
 
 # git
 brew "git"
@@ -50,8 +51,6 @@ brew "rbenv"
 brew "openssl"
 # brew "postgresql@14"
 # brew "mysql@5.7"
-# tap "heroku/brew"
-# brew "heroku"
 brew "neovim"
 
 # kubenates

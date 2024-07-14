@@ -1,5 +1,5 @@
 # ls
-alias ls="exa"
+alias ls="lsd"
 alias ll="ls -la --git"
 alias lt="ll -TL 3 --ignore-glob=.git"
 

@@ -16,7 +16,7 @@ brew "nkf"
 brew "tealdeer"
 brew "fzf"
 brew "bat"
-brew "exa"
+brew "lsd"
 brew "zoxide"
 
 # cli command

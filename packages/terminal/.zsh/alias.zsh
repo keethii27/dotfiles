@@ -29,4 +29,3 @@ alias cdrepo=". cdrepo"
 
 # kubectl
 alias k="kubectl"
-

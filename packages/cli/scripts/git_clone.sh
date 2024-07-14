@@ -24,3 +24,5 @@ ghq get github.com/gohandson/testing-ja
 ghq get github.com/reireias/dotfiles
 ghq get github.com/sasa-nori/nyaitter
 ghq get github.com/tenntenn/gohandson
+ghq get github.com/yagikota/clean_architecture_with_go
+ghq get github.com/ryokky59/go-layered-architecture-sample

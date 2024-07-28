@@ -66,6 +66,7 @@ brew "shared-mime-info" # mimemagic gem
 cask "iterm2"
 cask "google-chrome"
 cask "google-japanese-ime"
+cask "google-cloud-sdk"
 # cask "firefox"
 cask "alfred"
 cask "clipy"

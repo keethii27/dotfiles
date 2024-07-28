@@ -39,7 +39,7 @@ brew "shellcheck"
 
 # package manager
 brew "npm"
-# brew "yarn"
+brew "yarn"
 brew "volta"
 # brew "ndenv"
 # brew "node-build"

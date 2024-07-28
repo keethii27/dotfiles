@@ -86,7 +86,7 @@ cask "ngrok"
 # tap "austinliuigi/brew-neovim-nightly", "https://github.com/austinliuigi/brew-neovim-nightly.git"
 # cask "neovim-nightly"
 # tap "homebrew/cask-fonts"
-# cask "font-hack-nerd-font"
+cask "font-hack-nerd-font"
 
 # mas "LINE", id: 539883307
 # mas "Microsoft OneNote", id: 784801555

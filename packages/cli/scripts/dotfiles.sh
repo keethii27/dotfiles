@@ -101,7 +101,7 @@ dein_cache_path=~/.cache/dein
 if ! is_dir "$dein_cache_path"; then
     log 'Setup dein.vim'
     curl https://raw.githubusercontent.com/Shougo/dein-installer.vim/master/installer.sh > installer.sh
-    sh ./installer.sh ~/.cache/dein
+    sh ./installer.sh
     rm installer.sh
 
     log 'Install neovim setup'
@@ -113,7 +113,7 @@ fi
 
 log 'Configuring macOS default settings'
 # 隠しファイルを表示する
-defaults write com.apple.finder AppleShowAllFiles -boolean true
+defaults write com.apple.finder AppleShowAllFiles true
 # 共有フォルダで .DS_Store ファイルを作成しない
 defaults write com.apple.desktopservices DSDontWriteNetworkStores true
 

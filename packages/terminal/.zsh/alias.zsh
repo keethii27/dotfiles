@@ -19,7 +19,6 @@ alias rgrep='grep --include="*.rb"'
 alias ggrep='grep --include="*.go"'
 alias fgrep='find ./ | grep'
 
-alias cat="bat"
 alias lscmd="ls ~/scripts"
 alias pr="gh pr view --web"
 alias fzf='fzf --preview "bat --color=always --style=header,grid --line-range :100 {}"'
@@ -29,3 +28,5 @@ alias cdrepo=". cdrepo"
 
 # kubectl
 alias k="kubectl"
+
+alias c="cursor"

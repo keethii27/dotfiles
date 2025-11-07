@@ -96,8 +96,11 @@ eval "$(rbenv init -)"
 # export PATH=$PATH:$HOME/.ndenv/bin
 # eval "$(ndenv init -)"
 # # volta
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
+# export VOLTA_HOME="$HOME/.volta"
+# export PATH="$VOLTA_HOME/bin:$PATH"
+# fnm設定
+export PATH="$HOME/.fnm:$PATH"
+eval "$(fnm env --use-on-cd)"
 # kubectl
 source <(kubectl completion zsh)
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True

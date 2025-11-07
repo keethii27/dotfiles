@@ -12,15 +12,16 @@ brew "watch"
 brew "grep"
 brew "ripgrep"
 brew "jq"
+brew "yq"
 brew "nkf"
 brew "tealdeer"
 brew "fzf"
-brew "bat"
 brew "lsd"
 brew "zoxide"
 
 # cli command
 brew "awscli"
+brew "azure-cli"
 brew "kubectl"
 brew "terraform"
 
@@ -40,12 +41,15 @@ brew "shellcheck"
 # package manager
 brew "npm"
 brew "yarn"
-brew "volta"
+brew "pnpm"
+# brew "volta"
 # brew "ndenv"
+brew "fnm"
 # brew "node-build"
 brew "goenv"
 brew "rbenv"
 # brew "ruby-build"
+brew "uv"
 
 # application
 brew "openssl"
@@ -65,8 +69,9 @@ brew "shared-mime-info" # mimemagic gem
 # cask "dropbox"
 cask "iterm2"
 cask "google-chrome"
+cask "figma"
 cask "google-japanese-ime"
-cask "google-cloud-sdk"
+cask "gcloud-cli"
 # cask "firefox"
 cask "alfred"
 cask "clipy"
@@ -87,6 +92,7 @@ cask "ngrok"
 # cask "neovim-nightly"
 # tap "homebrew/cask-fonts"
 cask "font-hack-nerd-font"
+cask "shottr"
 
 # mas "LINE", id: 539883307
 # mas "Microsoft OneNote", id: 784801555

@@ -101,6 +101,11 @@ eval "$(rbenv init -)"
 # fnm設定
 export PATH="$HOME/.fnm:$PATH"
 eval "$(fnm env --use-on-cd)"
+# pyenv
+PYENV_ROOT=~/.pyenv
+export PATH=$PYENV_ROOT/bin:$PATH
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init - > /dev/null)"
 # kubectl
 source <(kubectl completion zsh)
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True

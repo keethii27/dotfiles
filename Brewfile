@@ -50,6 +50,8 @@ brew "goenv"
 brew "rbenv"
 # brew "ruby-build"
 brew "uv"
+brew "pyenv"
+brew "pyenv-virtualenv"
 
 # application
 brew "openssl"
@@ -75,13 +77,14 @@ cask "gcloud-cli"
 # cask "firefox"
 cask "alfred"
 cask "clipy"
+cask "cursor"
 cask "visual-studio-code"
 cask "tableplus"
 # cask "sequel-pro"
 # cask "mysqlworkbench" バージョンが新しすぎるためてブラウザからダウンロード(6.3.10)
 # cask "slack"
 cask "zoom"
-cask "docker"
+cask "docker-desktop"
 # cask "sourcetree"
 cask "ngrok"
 # cask "kindle"
@@ -93,6 +96,7 @@ cask "ngrok"
 # tap "homebrew/cask-fonts"
 cask "font-hack-nerd-font"
 cask "shottr"
+cask "session-manager-plugin"
 
 # mas "LINE", id: 539883307
 # mas "Microsoft OneNote", id: 784801555

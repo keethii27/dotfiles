@@ -39,8 +39,8 @@ brew "stow"
 brew "shellcheck"
 
 # package manager
-brew "npm"
-brew "yarn"
+# brew "npm"
+# brew "yarn"
 brew "pnpm"
 # brew "volta"
 # brew "ndenv"
@@ -50,8 +50,9 @@ brew "goenv"
 brew "rbenv"
 # brew "ruby-build"
 brew "uv"
-brew "pyenv"
-brew "pyenv-virtualenv"
+# brew "pyenv"
+# brew "pyenv-virtualenv"
+brew "rust"
 
 # application
 brew "openssl"
@@ -62,6 +63,9 @@ brew "neovim"
 # kubenates
 brew "kustomize"
 brew "stern"
+brew "k9s"
+brew "docker"
+brew "docker-compose"
 
 # other
 # brew "fswatch" # docker-sync gem
@@ -71,6 +75,7 @@ brew "shared-mime-info" # mimemagic gem
 # cask "dropbox"
 cask "iterm2"
 cask "google-chrome"
+# cask "microsoft-teams"
 cask "figma"
 cask "google-japanese-ime"
 cask "gcloud-cli"
@@ -85,6 +90,7 @@ cask "tableplus"
 # cask "slack"
 cask "zoom"
 cask "docker-desktop"
+cask "rancher"
 # cask "sourcetree"
 cask "ngrok"
 # cask "kindle"

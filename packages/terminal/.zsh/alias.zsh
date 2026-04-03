@@ -21,7 +21,7 @@ alias fgrep='find ./ | grep'
 
 alias lscmd="ls ~/scripts"
 alias pr="gh pr view --web"
-alias fzf='fzf --preview "bat --color=always --style=header,grid --line-range :100 {}"'
+alias fzf='fzf --preview "head -100 {}"'
 
 # script
 alias cdrepo=". cdrepo"

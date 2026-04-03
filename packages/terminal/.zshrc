@@ -38,8 +38,6 @@ zstyle ':completion:*' verbose yes
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 # less
 export LESS='-R'
-# man
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 # option
 # ファイル種別の記号を補完候補の末尾から非表示
@@ -101,11 +99,18 @@ eval "$(rbenv init -)"
 # fnm設定
 export PATH="$HOME/.fnm:$PATH"
 eval "$(fnm env --use-on-cd)"
-# pyenv
-PYENV_ROOT=~/.pyenv
-export PATH=$PYENV_ROOT/bin:$PATH
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init - > /dev/null)"
+# # pyenv
+# PYENV_ROOT=~/.pyenv
+# export PATH=$PYENV_ROOT/bin:$PATH
+# eval "$(pyenv init -)"
+# eval "$(pyenv virtualenv-init - > /dev/null)"
+
+# uv
+export PATH="$HOME/.local/bin:$PATH"
+
+# rust
+export PATH="$HOME/.cargo/bin:$PATH"
+
 # kubectl
 source <(kubectl completion zsh)
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
@@ -134,3 +139,7 @@ source ~/.zsh/search.zsh
 if [[ -e ~/.zshrc_local ]]; then
     source ~/.zshrc_local
 fi
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="$HOME/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)

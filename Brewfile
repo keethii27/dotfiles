@@ -89,7 +89,7 @@ cask "tableplus"
 # cask "mysqlworkbench" バージョンが新しすぎるためてブラウザからダウンロード(6.3.10)
 # cask "slack"
 cask "zoom"
-cask "docker-desktop"
+# cask "docker-desktop"
 cask "rancher"
 # cask "sourcetree"
 cask "ngrok"
@@ -103,6 +103,7 @@ cask "ngrok"
 cask "font-hack-nerd-font"
 cask "shottr"
 cask "session-manager-plugin"
+cask "claude-code"
 
 # mas "LINE", id: 539883307
 # mas "Microsoft OneNote", id: 784801555

@@ -7,7 +7,6 @@ STOW_PACKAGES_PATH="$GIT_CLONE_PATH"/dotfiles/packages
 
 skip_apps=
 verbose=
-gem=
 unlink_packages=
 for i in "$@"; do
     case "$i" in
@@ -16,9 +15,6 @@ for i in "$@"; do
             shift ;;
         -v|--verbose)
             verbose=1
-            shift ;;
-        -g|--gem)
-            gem=1
             shift ;;
         -u=*|--unlink=*)
             unlink_packages="${i#*=}"
@@ -60,16 +56,10 @@ if [ "$(dscl . -read ~/ UserShell)" = "UserShell: /bin/bash" ]; then
     chsh -s /bin/zsh
 fi
 
-# if ! is_file /usr/local/bin/brew; then
-# M1から変更になった？
 if ! is_file /opt/homebrew/bin/brew; then
     log 'Setup Homebrew'
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     brew doctor
-
-    # chmod 755 /usr/local/share/zsh/site-functions
-    # chmod 755 /usr/local/share/zsh
-    # chmod 755 /usr/local/bin
 fi
 
 ensure_dir "$GIT_CLONE_PATH"
@@ -89,13 +79,6 @@ log 'Link dotfiles'
 
 # shellcheck disable=SC2046
 stow -vd "$STOW_PACKAGES_PATH" -t ~ $(ls $STOW_PACKAGES_PATH)
-
-# gemfile_path=~/Gemfile
-# if is_file "$gemfile_path" && [ ! "$gem" ]; then
-#     log 'Install gem'
-#     ~/.asdf/shims/gem install bundler
-#     ~/.asdf/shims/bundle install
-# fi
 
 dein_cache_path=~/.cache/dein
 if ! is_dir "$dein_cache_path"; then

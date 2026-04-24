@@ -108,6 +108,10 @@ eval "$(fnm env --use-on-cd)"
 # uv
 export PATH="$HOME/.local/bin:$PATH"
 
+# pnpm
+export PNPM_HOME="$HOME/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+
 # rust
 export PATH="$HOME/.cargo/bin:$PATH"
 

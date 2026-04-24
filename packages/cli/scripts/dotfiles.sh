@@ -83,6 +83,21 @@ stow -vd "$STOW_PACKAGES_PATH" -t ~ $(ls $STOW_PACKAGES_PATH)
 log 'Install Cargo packages'
 cargo install tree-sitter-cli
 
+log 'Setup Go'
+latest_go=$(goenv install -l | grep -E '^\s*[0-9]+\.[0-9]+\.[0-9]+$' | tail -1 | tr -d ' ')
+goenv install -s "$latest_go"
+goenv global "$latest_go"
+
+log 'Setup Ruby'
+latest_ruby=$(rbenv install -l | grep -E '^\s*[0-9]+\.[0-9]+\.[0-9]+$' | tail -1 | tr -d ' ')
+rbenv install -s "$latest_ruby"
+rbenv global "$latest_ruby"
+
+log 'Install LSP servers'
+pnpm add -g typescript-language-server typescript
+go install golang.org/x/tools/gopls@latest
+gem install ruby-lsp
+
 log 'Configuring macOS default settings'
 # 隠しファイルを表示する
 defaults write com.apple.finder AppleShowAllFiles true

@@ -167,7 +167,14 @@ vim.lsp.config('gopls', {
   capabilities = capabilities,
 })
 
-vim.lsp.enable({ 'ts_ls', 'gopls' })
+vim.lsp.config('ruby_lsp', {
+  cmd = { 'ruby-lsp' },
+  filetypes = { 'ruby', 'eruby' },
+  root_markers = { 'Gemfile', '.git' },
+  capabilities = capabilities,
+})
+
+vim.lsp.enable({ 'ts_ls', 'gopls', 'ruby_lsp' })
 
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(ev)

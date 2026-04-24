@@ -50,9 +50,8 @@ setopt nolistbeep
 setopt AUTO_PARAM_KEYS
 
 # FZF
-if [[ -f ~/.fzf.zsh ]]; then
-    source ~/.fzf.zsh
-fi
+source /opt/homebrew/opt/fzf/shell/completion.zsh
+source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
 
 # pronpt
 # homebrew

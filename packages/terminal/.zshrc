@@ -136,8 +136,8 @@ source ~/.zsh/alias.zsh
 # fzf
 source ~/.zsh/search.zsh
 # local setting
-if [[ -e ~/.zshrc_local ]]; then
-    source ~/.zshrc_local
+if [[ -e ~/.zsh/.zshrc_local ]]; then
+    source ~/.zsh/.zshrc_local
 fi
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)

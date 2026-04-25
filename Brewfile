@@ -1,111 +1,87 @@
 cask_args appdir: "/Applications"
 
-# backup
-# brew "mas"
+## backup
 # brew "mackup"
+# brew "mas"
 
-# util command
+## util
 brew "coreutils"
 brew "curl"
-brew "tree"
-brew "watch"
-brew "grep"
-brew "ripgrep"
-brew "tree-sitter"
-brew "jq"
-brew "yq"
-brew "nkf"
-brew "tealdeer"
 brew "fzf"
+brew "grep"
+brew "jq"
 brew "lsd"
+brew "nkf"
+brew "ripgrep"
+brew "tealdeer"
+brew "tree"
+brew "tree-sitter"
+brew "watch"
+brew "yq"
 brew "zoxide"
 
-# cli command
-brew "awscli"
-brew "azure-cli"
-brew "kubectl"
-brew "terraform"
-
-# git
-brew "git"
-brew "ghq"
-tap "github/gh"
+## git
 brew "gh"
+brew "ghq"
+brew "git"
 
-# prompt
-brew "starship"
-
-# dotfiles
-brew "stow"
+## editor
+brew "neovim"
 brew "shellcheck"
 
-# package manager
-# brew "npm"
-# brew "yarn"
-brew "pnpm"
-# brew "volta"
-# brew "ndenv"
+## language
 brew "fnm"
-# brew "node-build"
 brew "goenv"
+brew "pnpm"
 brew "rbenv"
-# brew "ruby-build"
-brew "uv"
-# brew "pyenv"
-# brew "pyenv-virtualenv"
 brew "rust"
+brew "uv"
 
-# application
-brew "openssl"
-# brew "postgresql@14"
-# brew "mysql@5.7"
-brew "neovim"
-
-# kubenates
-brew "kustomize"
-brew "stern"
-brew "k9s"
+## infra
+brew "awscli"
+brew "azure-cli"
 brew "docker"
 brew "docker-compose"
+brew "k9s"
+brew "kubectl"
+brew "kustomize"
+brew "stern"
+brew "terraform"
 
-# other
-# brew "fswatch" # docker-sync gem
-# brew "unison" # docker-sync gem
+## other
+# brew "mysql@5.7"
+brew "openssl"
+# brew "postgresql@14"
 brew "shared-mime-info" # mimemagic gem
+brew "starship"
+brew "stow"
 
-# cask "dropbox"
-cask "iterm2"
-cask "google-chrome"
-cask "microsoft-teams"
-cask "figma"
-cask "google-japanese-ime"
-cask "gcloud-cli"
-# cask "firefox"
 cask "alfred"
+# cask "appcleaner"
+cask "claude-code"
 cask "clipy"
 cask "cursor"
-cask "visual-studio-code"
-cask "tableplus"
-# cask "sequel-pro"
-# cask "mysqlworkbench" バージョンが新しすぎるためてブラウザからダウンロード(6.3.10)
-# cask "slack"
-cask "zoom"
 # cask "docker-desktop"
-cask "rancher"
-# cask "sourcetree"
-cask "ngrok"
-# cask "kindle"
-# cask "appcleaner"
-# cask "mapture" homebrewからinstallできなくなった
-# tap "jason0x43/homebrew-neovim-nightly"
-# tap "austinliuigi/brew-neovim-nightly", "https://github.com/austinliuigi/brew-neovim-nightly.git"
-# cask "neovim-nightly"
-# tap "homebrew/cask-fonts"
+# cask "dropbox"
+cask "figma"
 cask "font-hack-nerd-font"
-cask "shottr"
+cask "gcloud-cli"
+cask "google-chrome"
+cask "google-japanese-ime"
+cask "iterm2"
+# cask "kindle"
+# cask "microsoft-teams"
+# cask "mysqlworkbench"
+cask "rancher"
+# cask "sequel-pro"
 cask "session-manager-plugin"
-cask "claude-code"
+cask "shottr"
+# cask "slack"
+# cask "sourcetree"
+cask "tableplus"
+cask "visual-studio-code"
+cask "zoom"
 
+# mas "Duplicate Photos Fixer Pro", id: 963642514
 # mas "LINE", id: 539883307
 # mas "Microsoft OneNote", id: 784801555
-# mas "Duplicate Photos Fixer Pro", id: 963642514

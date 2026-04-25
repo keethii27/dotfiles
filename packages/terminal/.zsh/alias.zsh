@@ -15,16 +15,9 @@ alias vi="nvim"
 # grep
 alias g='grep --color=always'
 alias grep='grep --color=always'
-alias rgrep='grep --include="*.rb"'
-alias ggrep='grep --include="*.go"'
-alias fgrep='find ./ | grep'
 
-alias lscmd="ls ~/scripts"
 alias pr="gh pr view --web"
 alias fzf='fzf --preview "head -100 {}"'
-
-# script
-alias cdrepo=". cdrepo"
 
 # kubectl
 alias k="kubectl"

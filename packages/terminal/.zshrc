@@ -58,6 +58,8 @@ source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
 export PATH=/opt/homebrew/bin:$PATH
 # starship
 eval "$(starship init zsh)"
+# zoxide
+eval "$(zoxide init zsh --cmd cd)"
 # タブにカレントディレクトリを表示
 # ログイン時
 echo -ne "\033]0;$(pwd | rev | awk -F "/" '{print "/"$1"/"$2}'| rev)\007"

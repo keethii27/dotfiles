@@ -93,6 +93,10 @@ latest_ruby=$(rbenv install -l | grep -E '^\s*[0-9]+\.[0-9]+\.[0-9]+$' | tail -1
 rbenv install -s "$latest_ruby"
 rbenv global "$latest_ruby"
 
+log 'Setup Node'
+fnm install --lts
+fnm default lts-latest
+
 log 'Install LSP servers'
 pnpm add -g typescript-language-server typescript
 go install golang.org/x/tools/gopls@latest

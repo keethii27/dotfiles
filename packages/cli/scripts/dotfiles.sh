@@ -97,6 +97,9 @@ log 'Setup Node'
 fnm install --lts
 fnm default lts-latest
 
+log 'Install Claude Code statusline'
+fnm exec --using=default npm install -g ccstatusline@latest
+
 log 'Install LSP servers'
 pnpm add -g typescript-language-server typescript
 go install golang.org/x/tools/gopls@latest

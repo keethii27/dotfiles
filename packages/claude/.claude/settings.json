@@ -1,0 +1,20 @@
+{
+  "extraKnownMarketplaces": {
+    "superpowers-marketplace": {
+      "source": {
+        "source": "github",
+        "repo": "obra/superpowers-marketplace"
+      }
+    }
+  },
+  "skipDangerousModePermissionPrompt": true,
+  "enabledPlugins": {
+    "superpowers@superpowers-marketplace": true
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "fnm exec --using=default ccstatusline",
+    "padding": 0,
+    "refreshInterval": 10
+  }
+}

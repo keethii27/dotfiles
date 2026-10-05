@@ -1,0 +1,142 @@
+{
+  "version": 4,
+  "lines": [
+    [
+      {
+        "id": "1",
+        "type": "git-root-dir",
+        "bold": true
+      },
+      {
+        "id": "3",
+        "type": "git-branch",
+        "merge": true
+      },
+      {
+        "id": "4",
+        "type": "git-status",
+        "merge": true
+      },
+      {
+        "id": "5",
+        "type": "git-ahead-behind"
+      },
+      {
+        "id": "7",
+        "type": "git-review"
+      }
+    ],
+    [
+      {
+        "id": "11",
+        "type": "model",
+        "rawValue": true
+      },
+      {
+        "id": "13",
+        "type": "context-bar"
+      },
+      {
+        "id": "15a",
+        "type": "custom-text",
+        "customText": "⏱ ",
+        "merge": "no-padding"
+      },
+      {
+        "id": "15",
+        "type": "session-clock",
+        "rawValue": true
+      },
+      {
+        "id": "17a",
+        "type": "custom-text",
+        "customText": "5h ",
+        "merge": "no-padding"
+      },
+      {
+        "id": "17",
+        "type": "session-usage",
+        "rawValue": true,
+        "merge": "no-padding"
+      },
+      {
+        "id": "18a",
+        "type": "custom-text",
+        "customText": " (rst ",
+        "merge": "no-padding"
+      },
+      {
+        "id": "18",
+        "type": "reset-timer",
+        "rawValue": true,
+        "merge": "no-padding"
+      },
+      {
+        "id": "18b",
+        "type": "custom-text",
+        "customText": ")"
+      },
+      {
+        "id": "20a",
+        "type": "custom-text",
+        "customText": "7d ",
+        "merge": "no-padding"
+      },
+      {
+        "id": "20",
+        "type": "weekly-usage",
+        "rawValue": true,
+        "merge": "no-padding"
+      },
+      {
+        "id": "21a",
+        "type": "custom-text",
+        "customText": " (rst ",
+        "merge": "no-padding"
+      },
+      {
+        "id": "21",
+        "type": "weekly-reset-timer",
+        "rawValue": true,
+        "merge": "no-padding"
+      },
+      {
+        "id": "21b",
+        "type": "custom-text",
+        "customText": ")"
+      },
+      {
+        "id": "23",
+        "type": "session-cost",
+        "rawValue": true
+      },
+      {
+        "id": "25",
+        "type": "thinking-effort"
+      }
+    ]
+  ],
+  "flexMode": "full",
+  "colorLevel": 2,
+  "installation": {
+    "method": "self-managed",
+    "packageManager": "npm"
+  },
+  "powerline": {
+    "enabled": true,
+    "separators": [
+      ""
+    ],
+    "separatorInvertBackground": [
+      false
+    ],
+    "startCaps": [],
+    "endCaps": [
+      ""
+    ],
+    "theme": "tokyonight",
+    "autoAlign": false,
+    "continueThemeAcrossLines": false
+  },
+  "defaultPadding": " "
+}

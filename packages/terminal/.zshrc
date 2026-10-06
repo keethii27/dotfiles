@@ -66,7 +66,7 @@ eval "$(fnm env --use-on-cd)"
 export PATH="$HOME/.local/bin:$PATH"
 # pnpm
 export PNPM_HOME="$HOME/Library/pnpm"
-export PATH="$PNPM_HOME:$PATH"
+export PATH="$PNPM_HOME/bin:$PATH"
 # rust
 export PATH="$HOME/.cargo/bin:$PATH"
 

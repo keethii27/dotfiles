@@ -59,8 +59,14 @@ fi
 if ! is_file /opt/homebrew/bin/brew; then
     log 'Setup Homebrew'
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    brew doctor
+    /opt/homebrew/bin/brew doctor || true
 fi
+
+# .zshrc はまだ読み込まれていないため、以降で使うツールの PATH をここで通す
+eval "$(/opt/homebrew/bin/brew shellenv)"
+export PATH="$HOME/.goenv/shims:$HOME/.rbenv/shims:$PATH"
+export PNPM_HOME="$HOME/Library/pnpm"
+export PATH="$PNPM_HOME/bin:$PATH"
 
 ensure_dir "$GIT_CLONE_PATH"
 
@@ -72,13 +78,22 @@ fi
 
 if [ ! "$skip_apps" ]; then
     log 'Install Apps and CLIs'
-    brew bundle --file "$GIT_CLONE_PATH"/dotfiles/Brewfile "$([ -n "$verbose" ] && echo -v)"
+    brew bundle --file "$GIT_CLONE_PATH"/dotfiles/Brewfile ${verbose:+-v}
 fi
 
 log 'Link dotfiles'
 
+# アプリが先に作成した設定ファイルがあると stow が衝突するため退避する
+for target in ~/.claude/settings.json ~/.config/ccstatusline/settings.json; do
+    if is_file "$target" && [ ! -L "$target" ]; then
+        log "Backup $target"
+        mv "$target" "$target.bak"
+    fi
+done
+
+# --no-folding: ディレクトリごとリンクすると、アプリが書き込むファイルがリポジトリに入るため
 # shellcheck disable=SC2046
-stow -vd "$STOW_PACKAGES_PATH" -t ~ $(ls $STOW_PACKAGES_PATH)
+stow -v --no-folding -d "$STOW_PACKAGES_PATH" -t ~ $(ls $STOW_PACKAGES_PATH)
 
 log 'Install Cargo packages'
 cargo install tree-sitter-cli

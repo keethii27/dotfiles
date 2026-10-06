@@ -2,3 +2,5 @@
 undo
 Brewfile.lock.json
 .zshrc_local
+packages/claude/.claude/*
+!packages/claude/.claude/settings.json

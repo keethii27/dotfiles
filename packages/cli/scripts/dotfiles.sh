@@ -88,11 +88,14 @@ fi
 log 'Link dotfiles'
 
 # アプリが先に作成した設定ファイルがあると stow が衝突するため退避する
-target=~/.config/ccstatusline/settings.json
-if is_file "$target" && [ ! -L "$target" ]; then
-    log "Backup $target"
-    mv "$target" "$target.bak"
-fi
+for target in \
+    ~/.config/ccstatusline/settings.json \
+    ~/.config/git/ignore; do
+    if is_file "$target" && [ ! -L "$target" ]; then
+        log "Backup $target"
+        mv "$target" "$target.bak"
+    fi
+done
 
 # --no-folding: ディレクトリごとリンクすると、アプリが書き込むファイルがリポジトリに入るため
 # shellcheck disable=SC2046

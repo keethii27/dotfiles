@@ -1,0 +1,41 @@
+{
+  "workbench.colorTheme": "GitHub Dark",
+  "workbench.startupEditor": "none",
+  "editor.minimap.enabled": false,
+  "editor.formatOnSave": true,
+  "files.insertFinalNewline": true,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.linkedEditing": true,
+  "editor.renderWhitespace": "trailing",
+  "terminal.integrated.defaultProfile.linux": "zsh",
+  "terminal.integrated.scrollback": 2000,
+  "git.openRepositoryInParentFolders": "never",
+  "git.detectWorktrees": true,
+  "githubPullRequests.createOnPublishBranch": "never",
+  "githubPullRequests.pullBranch": "never",
+  "workbench.externalUriOpeners": {
+    "*": "default"
+  },
+  "dev.containers.gitCredentialHelperConfigLocation": "none",
+  "remote.autoForwardPortsSource": "hybrid",
+  "go.toolsManagement.autoUpdate": true,
+  "solargraph.diagnostics": true,
+  "redhat.telemetry.enabled": false,
+  "yaml.disableSchemaDetection": [
+    "**/.github/workflows/*.yml",
+    "**/.github/workflows/*.yaml",
+    "**/.gitea/workflows/*.yml",
+    "**/.gitea/workflows/*.yaml",
+    "**/.forgejo/workflows/*.yml",
+    "**/.forgejo/workflows/*.yaml"
+  ],
+  "json.schemaDownload.trustedDomains": {
+    "https://biomejs.dev": true
+  },
+  "[json][jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[yaml]": {
+    "editor.formatOnSave": false
+  }
+}

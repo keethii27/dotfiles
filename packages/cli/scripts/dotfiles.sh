@@ -90,7 +90,9 @@ log 'Link dotfiles'
 # アプリが先に作成した設定ファイルがあると stow が衝突するため退避する
 for target in \
     ~/.config/ccstatusline/settings.json \
-    ~/.config/git/ignore; do
+    ~/.config/git/ignore \
+    "$HOME/Library/Application Support/Code/User/settings.json" \
+    "$HOME/Library/Application Support/Code/User/keybindings.json"; do
     if is_file "$target" && [ ! -L "$target" ]; then
         log "Backup $target"
         mv "$target" "$target.bak"

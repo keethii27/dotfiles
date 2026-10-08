@@ -3,4 +3,7 @@ undo
 Brewfile.lock.json
 .zshrc_local
 packages/claude/.claude/*
-!packages/claude/.claude/settings.json
+!packages/claude/.claude/settings.default.json
+!packages/claude/.claude/hooks/
+packages/claude/.claude/hooks/*
+!packages/claude/.claude/hooks/notify.sh

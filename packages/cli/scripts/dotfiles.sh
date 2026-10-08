@@ -7,6 +7,7 @@ STOW_PACKAGES_PATH="$GIT_CLONE_PATH"/dotfiles/packages
 
 skip_apps=
 verbose=
+claude_settings=
 unlink_packages=
 for i in "$@"; do
     case "$i" in
@@ -15,6 +16,9 @@ for i in "$@"; do
             shift ;;
         -v|--verbose)
             verbose=1
+            shift ;;
+        -c|--claude-settings)
+            claude_settings=1
             shift ;;
         -u=*|--unlink=*)
             unlink_packages="${i#*=}"
@@ -84,16 +88,21 @@ fi
 log 'Link dotfiles'
 
 # アプリが先に作成した設定ファイルがあると stow が衝突するため退避する
-for target in ~/.claude/settings.json ~/.config/ccstatusline/settings.json; do
-    if is_file "$target" && [ ! -L "$target" ]; then
-        log "Backup $target"
-        mv "$target" "$target.bak"
-    fi
-done
+target=~/.config/ccstatusline/settings.json
+if is_file "$target" && [ ! -L "$target" ]; then
+    log "Backup $target"
+    mv "$target" "$target.bak"
+fi
 
 # --no-folding: ディレクトリごとリンクすると、アプリが書き込むファイルがリポジトリに入るため
 # shellcheck disable=SC2046
 stow -v --no-folding -d "$STOW_PACKAGES_PATH" -t ~ $(ls $STOW_PACKAGES_PATH)
+
+# Claude Code 自身が書き込んだ変更を上書きしないよう、既存の端末ではオプション指定時のみ生成する
+if [ "$claude_settings" ] || ! is_file ~/.claude/settings.json; then
+    log 'Generate Claude Code settings'
+    "$STOW_PACKAGES_PATH"/cli/scripts/claude-settings.sh
+fi
 
 log 'Install Cargo packages'
 cargo install tree-sitter-cli

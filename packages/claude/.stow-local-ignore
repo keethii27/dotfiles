@@ -1,0 +1,2 @@
+# settings.json の生成元。claude-settings.sh が直接読むためリンクしない
+^/\.claude/settings\.(default|local)\.json$

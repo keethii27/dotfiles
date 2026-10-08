@@ -116,6 +116,7 @@ end
 ## work only
 if ENV["HOMEBREW_MACHINE_TYPE"] == "work"
   ## infra
+  brew "aqua"
   brew "azure-cli"
   brew "k9s"
   brew "kubectl"

@@ -95,6 +95,8 @@ vscode "shopify.ruby-lsp"
 vscode "sianglim.slim"
 vscode "simonsiefke.svg-preview"
 vscode "streetsidesoftware.code-spell-checker"
+vscode "tomoki1207.pdf"
+vscode "wayou.vscode-todo-highlight"
 
 ## personal only
 if ENV["HOMEBREW_MACHINE_TYPE"] == "personal"
@@ -111,6 +113,7 @@ if ENV["HOMEBREW_MACHINE_TYPE"] == "personal"
   mas "Kindle", id: 302584613
   mas "LINE", id: 539883307
   mas "Microsoft OneNote", id: 784801555
+  mas "Numbers", id: 409203825
 end
 
 ## work only

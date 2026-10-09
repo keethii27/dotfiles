@@ -129,6 +129,13 @@ fnm default lts-latest
 log 'Install Claude Code statusline'
 fnm exec --using=default npm install -g ccstatusline@latest
 
+log 'Install Playwright CLI'
+fnm exec --using=default npm install -g @playwright/cli@latest
+fnm exec --using=default playwright-cli install --skills --global
+# Playwright は IPv6 を優先して接続するため、IPv6 の通信が途中で止まるネットワーク（会社のセキュリティソフトなど）では
+# ダウンロードがタイムアウトする。IPv4 を優先させて回避する
+NODE_OPTIONS=--dns-result-order=ipv4first fnm exec --using=default playwright-cli install-browser webkit
+
 log 'Install LSP servers'
 pnpm add -g typescript-language-server typescript
 go install golang.org/x/tools/gopls@latest

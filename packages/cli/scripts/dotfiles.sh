@@ -8,6 +8,7 @@ STOW_PACKAGES_PATH="$GIT_CLONE_PATH"/dotfiles/packages
 skip_apps=
 verbose=
 claude_settings=
+macos_defaults=
 unlink_packages=
 for i in "$@"; do
     case "$i" in
@@ -19,6 +20,9 @@ for i in "$@"; do
             shift ;;
         -c|--claude-settings)
             claude_settings=1
+            shift ;;
+        -m|--macos-defaults)
+            macos_defaults=1
             shift ;;
         -u=*|--unlink=*)
             unlink_packages="${i#*=}"
@@ -142,9 +146,7 @@ go install golang.org/x/tools/gopls@latest
 gem install ruby-lsp
 
 log 'Configuring macOS default settings'
-# 隠しファイルを表示する
-defaults write com.apple.finder AppleShowAllFiles true
-# 共有フォルダで .DS_Store ファイルを作成しない
-defaults write com.apple.desktopservices DSDontWriteNetworkStores true
+# 設定アプリなどで変えた値を上書きしないよう、オプション指定時のみ書き込む。指定がなければ差分を表示する
+"$STOW_PACKAGES_PATH"/cli/scripts/macos-defaults.sh ${macos_defaults:+--apply}
 
 log 'Finish!!'

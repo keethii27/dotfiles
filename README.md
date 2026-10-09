@@ -18,3 +18,14 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/keethii27/dotfiles/main/pa
 Claude Code 自身の変更（`/plugin` など）も `settings.json` に書き込まれる。
 残したい変更は上の 2 ファイルに反映してから生成し直す。
 生成時の差分で `-` の行は反映し忘れた変更で、戻す場合はバックアップ（`settings.json.bak.*`）から復元する。
+
+## macOS の設定
+
+`packages/cli/scripts/macos-defaults.sh` で管理する。
+
+- `~/scripts/macos-defaults.sh`: 現在の値との差分を表示する（変更しない）
+- `~/scripts/macos-defaults.sh --apply`: 差分のある設定を書き込む
+
+`dotfiles.sh` は差分を表示するだけで、`-m`（`--macos-defaults`）を付けた場合のみ書き込む。新しい端末では `-m` を付けて実行する。
+
+設定アプリなどで変えた値は `--apply` で上書きされる。残したい場合は `macos-defaults.sh` に反映する。

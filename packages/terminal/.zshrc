@@ -52,15 +52,12 @@ source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
 
 ## version managers
 # goenv
-export GOENV_ROOT=$HOME/.goenv
-export PATH="$GOENV_ROOT/bin:$PATH"
 eval "$(goenv init -)"
 export PATH="$GOROOT/bin:$PATH"
 export PATH="$PATH:$GOPATH/bin"
 # rbenv
 eval "$(rbenv init -)"
 # fnm
-export PATH="$HOME/.fnm:$PATH"
 eval "$(fnm env --use-on-cd)"
 # uv
 export PATH="$HOME/.local/bin:$PATH"
@@ -73,10 +70,9 @@ export PATH="$HOME/.cargo/bin:$PATH"
 ## cloud
 # kubectl
 source <(kubectl completion zsh)
-export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 # gcloud
-source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
-source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+source /opt/homebrew/share/google-cloud-sdk/path.zsh.inc
+source /opt/homebrew/share/google-cloud-sdk/completion.zsh.inc
 
 ## tab title
 # ログイン時

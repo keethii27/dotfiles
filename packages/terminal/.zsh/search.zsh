@@ -43,18 +43,6 @@ function fzf-find () {
 zle -N fzf-find
 bindkey '^F' fzf-find
 
-# Ctrl + E = cdr (zoxide の cdi に移行)
-# function fzf-cdr (){
-#     local selected_dir
-#     selected_dir=$(cdr -l | awk '{ print $2 }' | fzf --preview 'f() { sh -c "ls -hFGla $1" }; f {}')
-#     if [ -n "$selected_dir" ]; then
-#         BUFFER="cd ${selected_dir}"
-#         zle accept-line
-#     fi
-# }
-# zle -N fzf-cdr
-# bindkey '^E' fzf-cdr
-
 # fzf + git switch
 function fgs {
     local branches branch

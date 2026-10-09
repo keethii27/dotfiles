@@ -21,5 +21,3 @@ alias fzf='fzf --preview "head -100 {}"'
 
 # kubectl
 alias k="kubectl"
-
-alias c="cursor"

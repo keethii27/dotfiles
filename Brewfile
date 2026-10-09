@@ -30,6 +30,7 @@ brew "fnm"
 brew "goenv"
 brew "pnpm"
 brew "rbenv"
+brew "ruby-build"
 brew "rust"
 brew "uv"
 

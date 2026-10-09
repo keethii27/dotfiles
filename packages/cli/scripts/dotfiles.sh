@@ -118,8 +118,10 @@ cargo install tree-sitter-cli
 
 log 'Setup Go'
 latest_go=$(goenv install -l | grep -E '^\s*[0-9]+\.[0-9]+\.[0-9]+$' | tail -1 | tr -d ' ')
-goenv install -s "$latest_go"
-goenv global "$latest_go"
+# goenv が Go のインストール時にツールを自動で入れると GOPATH と GOROOT が同じという警告が出るため止め、ツールは下で入れる
+goenv tools default-tools disable
+# 未インストールの場合はインストールしてから、既定の版にする。スクリプトからは確認できないため --yes を付ける
+goenv use "$latest_go" --global --yes
 
 log 'Setup Ruby'
 latest_ruby=$(rbenv install -l | grep -E '^\s*[0-9]+\.[0-9]+\.[0-9]+$' | tail -1 | tr -d ' ')
@@ -127,8 +129,10 @@ rbenv install -s "$latest_ruby"
 rbenv global "$latest_ruby"
 
 log 'Setup Node'
-fnm install --lts
-fnm default lts-latest
+latest_node=$(fnm ls-remote --lts --latest | awk '{print $1}')
+# インストール済みの版を fnm install すると警告が出るため、未インストールの場合のみ入れる
+fnm ls | grep -qw "$latest_node" || fnm install "$latest_node"
+fnm default "$latest_node"
 
 log 'Install Claude Code statusline'
 fnm exec --using=default npm install -g ccstatusline@latest
@@ -143,6 +147,8 @@ NODE_OPTIONS=--dns-result-order=ipv4first fnm exec --using=default playwright-cl
 log 'Install LSP servers'
 pnpm add -g typescript-language-server typescript
 go install golang.org/x/tools/gopls@latest
+go install github.com/go-delve/delve/cmd/dlv@latest
+go install honnef.co/go/tools/cmd/staticcheck@latest
 gem install ruby-lsp
 
 log 'Configuring macOS default settings'

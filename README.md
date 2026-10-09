@@ -1,8 +1,24 @@
 # dotfiles
 
-```
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/keethii27/dotfiles/main/packages/cli/scripts/dotfiles.sh)"
-```
+## 端末の移行
+
+### 旧端末
+
+1. git 管理外の端末固有ファイルをバックアップする
+   - `packages/terminal/.zsh/.zshrc_local`
+   - `packages/claude/.claude/settings.local.json`
+2. Raycast の設定を書き出す
+
+### 新端末
+
+1. `HOMEBREW_MACHINE_TYPE`（`personal` / `work`）を指定し、`-m` を付けて `dotfiles.sh` を実行する。指定しないと Brewfile の `personal` / `work` のブロックがインストールされない
+   ```
+   HOMEBREW_MACHINE_TYPE=personal sh -c "$(curl -fsSL https://raw.githubusercontent.com/keethii27/dotfiles/main/packages/cli/scripts/dotfiles.sh)" dotfiles.sh -m
+   ```
+2. バックアップした端末固有ファイルを元の場所に戻し、`~/scripts/claude-settings.sh` で Claude Code の設定を生成し直す
+   - `.zshrc_local` がない場合は作成し、`export HOMEBREW_MACHINE_TYPE=personal`（または `work`）を書く
+3. `gh auth login` を実行する（Git の認証に gh を使うため）
+4. 旧端末で書き出した Raycast の設定を読み込む
 
 ## Claude Code の設定
 

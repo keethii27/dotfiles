@@ -1,5 +1,4 @@
 .DS_Store
-undo
 .zshrc_local
 packages/claude/.claude/*
 !packages/claude/.claude/settings.default.json

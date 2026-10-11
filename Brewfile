@@ -45,6 +45,7 @@ brew "docker-compose"
 brew "starship"
 brew "stow"
 
+## apps
 cask "alfred"
 cask "claude"
 cask "claude-code"
@@ -99,13 +100,15 @@ vscode "wayou.vscode-todo-highlight"
 if ENV["HOMEBREW_MACHINE_TYPE"] == "personal"
   ## backup
   brew "mackup"
-  brew "mas"
 
+  ## apps
   cask "appcleaner"
   cask "docker-desktop"
   cask "dropbox"
   cask "session-manager-plugin"
 
+  ## Mac App Store
+  brew "mas"
   mas "Duplicate Photos Fixer Pro", id: 963642514
   mas "Kindle", id: 302584613
   mas "LINE", id: 539883307
@@ -124,6 +127,7 @@ if ENV["HOMEBREW_MACHINE_TYPE"] == "work"
   brew "stern"
   brew "terraform"
 
+  ## apps
   cask "microsoft-teams"
   cask "rancher"
 

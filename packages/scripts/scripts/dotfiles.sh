@@ -27,8 +27,7 @@ while [ $# -gt 0 ]; do
 done
 
 log() {
-    message=$1
-    echo 📌 "$message"
+    echo "📌 $1"
 }
 
 is_file() {

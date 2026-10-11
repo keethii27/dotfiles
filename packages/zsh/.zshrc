@@ -5,7 +5,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 source ~/.zsh/plugins.zsh
 
 ## history
-# 保存数を増やす
+# 履歴のファイルと件数
 export HISTFILE=~/.zsh_history
 export HISTSIZE=100000
 # メモリ上の件数（HISTSIZE）を超える分は保存されないため同じ値にする
@@ -21,7 +21,7 @@ autoload -Uz compinit && compinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 # 補完候補を一覧表示したとき、Tabや矢印で選択できるようにする
 zstyle ':completion:*:default' menu select=1
-# 補完候補にもシンタックスハイライトが反映される設定
+# 補完候補に説明を表示する
 zstyle ':completion:*' verbose yes
 # 補完候補一覧をカラー表示
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
@@ -35,11 +35,9 @@ export LESS='-R'
 unsetopt list_types
 # ビープ音の停止（補完時を含む）
 setopt no_beep
-# 環境変数を補完
-setopt AUTO_PARAM_KEYS
 
 ## PATH
-export PATH=$PATH:$HOME/scripts
+export PATH="$PATH:$HOME/scripts"
 
 ## tools
 # starship
@@ -87,7 +85,7 @@ fi
 ## sub files
 source ~/.zsh/alias.zsh
 source ~/.zsh/search.zsh
-# local setting
+# 端末固有の設定（git 管理外）
 if [[ -e ~/.zsh/.zshrc_local ]]; then
     source ~/.zsh/.zshrc_local
 fi

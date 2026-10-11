@@ -16,7 +16,10 @@ alias vi="nvim"
 alias g='grep --color=auto'
 alias grep='grep --color=auto'
 
+# gh
 alias pr="gh pr view --web"
+
+# fzf
 alias fzf='fzf --preview "head -100 {}"'
 
 # kubectl

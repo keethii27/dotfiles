@@ -8,6 +8,7 @@ brew "jq"
 brew "lsd"
 brew "nkf"
 brew "ripgrep"
+brew "stow"
 brew "tealdeer"
 brew "tree"
 brew "watch"
@@ -20,11 +21,7 @@ brew "ghq"
 brew "git"
 
 ## editor
-brew "delve"
-brew "gopls"
-brew "lua-language-server"
 brew "neovim"
-brew "shellcheck"
 brew "tree-sitter-cli"
 
 ## language
@@ -36,25 +33,32 @@ brew "ruby-build"
 brew "rust"
 brew "uv"
 
+## language tools
+brew "delve"
+brew "gopls"
+brew "lua-language-server"
+brew "shellcheck"
+
 ## infra
 brew "awscli"
 brew "docker"
 brew "docker-compose"
+cask "gcloud-cli"
 
-## other
+## terminal
 brew "starship"
-brew "stow"
+cask "font-hack-nerd-font"
+
+## ai
+cask "claude-code"
 
 ## apps
 cask "alfred"
 cask "claude"
-cask "claude-code"
 cask "clipy"
 cask "cmux"
 cask "cursor"
 cask "figma"
-cask "font-hack-nerd-font"
-cask "gcloud-cli"
 cask "google-chrome"
 cask "google-japanese-ime"
 cask "iterm2"
@@ -98,11 +102,13 @@ vscode "wayou.vscode-todo-highlight"
 
 ## personal only
 if ENV["HOMEBREW_MACHINE_TYPE"] == "personal"
+  ## infra
+  cask "session-manager-plugin"
+
   ## apps
   cask "appcleaner"
   cask "docker-desktop"
   cask "dropbox"
-  cask "session-manager-plugin"
 
   ## Mac App Store
   brew "mas"
@@ -116,13 +122,15 @@ end
 ## work only
 if ENV["HOMEBREW_MACHINE_TYPE"] == "work"
   ## infra
+  tap "hashicorp/tap"
+
   brew "aqua"
-  brew "azure-cli"
+  brew "hashicorp/tap/terraform"
   brew "k9s"
   brew "kubectl"
   brew "kustomize"
   brew "stern"
-  brew "terraform"
+  cask "azure-cli"
 
   ## apps
   cask "microsoft-teams"

@@ -68,8 +68,6 @@ export PATH="$PNPM_HOME/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 
 ## cloud
-# kubectl
-source <(kubectl completion zsh)
 # gcloud
 source /opt/homebrew/share/google-cloud-sdk/path.zsh.inc
 source /opt/homebrew/share/google-cloud-sdk/completion.zsh.inc

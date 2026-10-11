@@ -108,11 +108,13 @@ for package in "$STOW_PACKAGES_PATH"/*/; do
     stow -v --no-folding -d "$STOW_PACKAGES_PATH" -t ~ "$(basename "$package")"
 done
 
-# Claude Code 自身が書き込んだ変更を上書きしないよう、既存の端末ではオプション指定時のみ生成する
-if [ "$claude_settings" ] || ! is_file ~/.claude/settings.json; then
-    log 'Generate Claude Code settings'
-    "$STOW_PACKAGES_PATH"/cli/scripts/claude-settings.sh
+log 'Configuring Claude Code settings'
+# Claude Code 自身が書き込んだ変更を上書きしないよう、オプション指定時のみ書き込む。指定がなければ差分を表示する
+# 新しく作る場合は失う設定がないため、オプションがなくても書き込む
+if ! is_file ~/.claude/settings.json; then
+    claude_settings=1
 fi
+"$STOW_PACKAGES_PATH"/cli/scripts/claude-settings.sh ${claude_settings:+--apply}
 
 log 'Install Cargo packages'
 cargo install tree-sitter-cli

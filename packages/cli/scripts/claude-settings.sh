@@ -18,9 +18,9 @@ for i in "$@"; do
     esac
 done
 
-SETTINGS_PATH=~/src/github.com/keethii27/dotfiles/packages/claude/.claude
-default_settings="$SETTINGS_PATH"/settings.default.json
-local_settings="$SETTINGS_PATH"/settings.local.json
+SOURCE_PATH=~/src/github.com/keethii27/dotfiles/packages/claude/.claude
+default_settings="$SOURCE_PATH"/settings.default.json
+local_settings="$SOURCE_PATH"/settings.local.json
 target=~/.claude/settings.json
 
 [ -f "$local_settings" ] || local_settings=/dev/null

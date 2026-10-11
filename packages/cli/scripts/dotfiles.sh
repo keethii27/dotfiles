@@ -2,21 +2,21 @@
 
 set -e
 
-GIT_CLONE_PATH=~/src/github.com/keethii27
-STOW_PACKAGES_PATH="$GIT_CLONE_PATH"/dotfiles/packages
+DOTFILES_PATH=~/src/github.com/keethii27/dotfiles
+STOW_PACKAGES_PATH="$DOTFILES_PATH"/packages
 
 skip_brew=
-claude_settings=
-macos_defaults=
+apply_claude_settings=
+apply_macos_defaults=
 unlink_packages=
 while [ $# -gt 0 ]; do
     case "$1" in
         -s|--skip-brew)
             skip_brew=1 ;;
         -c|--claude-settings)
-            claude_settings=1 ;;
+            apply_claude_settings=1 ;;
         -m|--macos-defaults)
-            macos_defaults=1 ;;
+            apply_macos_defaults=1 ;;
         # 複数指定できる（-u terminal -u git）
         -u|--unlink)
             unlink_packages="$unlink_packages $2"
@@ -41,15 +41,8 @@ is_dir() {
     [ -d "$path" ]
 }
 
-ensure_dir() {
-    path="$1"
-    if ! is_dir "$path"; then
-        mkdir -p "$path"
-    fi
-}
-
 if [ -n "$unlink_packages" ]; then
-    log 'Unlinking dotfiles...'
+    log 'Unlink dotfiles'
     for package in $unlink_packages; do
         stow -vD -d "$STOW_PACKAGES_PATH" -t ~ "$package"
     done
@@ -62,7 +55,7 @@ if [ "$(dscl . -read ~/ UserShell)" = "UserShell: /bin/bash" ]; then
 fi
 
 if ! is_file /opt/homebrew/bin/brew; then
-    log 'Setup Homebrew'
+    log 'Set up Homebrew'
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     /opt/homebrew/bin/brew doctor || true
 fi
@@ -73,17 +66,14 @@ export PATH="$HOME/.goenv/shims:$HOME/.rbenv/shims:$PATH"
 export PNPM_HOME="$HOME/Library/pnpm"
 export PATH="$PNPM_HOME/bin:$PATH"
 
-ensure_dir "$GIT_CLONE_PATH"
-
-if ! is_dir "$GIT_CLONE_PATH"/dotfiles; then
+if ! is_dir "$DOTFILES_PATH"; then
     log 'Clone dotfiles'
-    cd "$GIT_CLONE_PATH"
-    git clone https://github.com/keethii27/dotfiles.git
+    git clone https://github.com/keethii27/dotfiles.git "$DOTFILES_PATH"
 fi
 
 if [ ! "$skip_brew" ]; then
     log 'Install Homebrew packages'
-    brew bundle --file "$GIT_CLONE_PATH"/dotfiles/Brewfile
+    brew bundle --file "$DOTFILES_PATH"/Brewfile
 fi
 
 log 'Link dotfiles'
@@ -105,30 +95,30 @@ for package in "$STOW_PACKAGES_PATH"/*/; do
     stow -v --no-folding -d "$STOW_PACKAGES_PATH" -t ~ "$(basename "$package")"
 done
 
-log 'Configuring Claude Code settings'
+log 'Configure Claude Code settings'
 # Claude Code 自身が書き込んだ変更を上書きしないよう、オプション指定時のみ書き込む。指定がなければ差分を表示する
 # 新しく作る場合は失う設定がないため、オプションがなくても書き込む
 if ! is_file ~/.claude/settings.json; then
-    claude_settings=1
+    apply_claude_settings=1
 fi
-"$STOW_PACKAGES_PATH"/cli/scripts/claude-settings.sh ${claude_settings:+--apply}
+"$STOW_PACKAGES_PATH"/cli/scripts/claude-settings.sh ${apply_claude_settings:+--apply}
 
 log 'Install Cargo packages'
 cargo install tree-sitter-cli
 
-log 'Setup Go'
+log 'Set up Go'
 latest_go=$(goenv install -l | grep -E '^\s*[0-9]+\.[0-9]+\.[0-9]+$' | tail -1 | tr -d ' ')
 # goenv が Go のインストール時にツールを自動で入れると GOPATH と GOROOT が同じという警告が出るため止め、ツールは下で入れる
 goenv tools default-tools disable
 # 未インストールの場合はインストールしてから、既定の版にする。スクリプトからは確認できないため --yes を付ける
 goenv use "$latest_go" --global --yes
 
-log 'Setup Ruby'
+log 'Set up Ruby'
 latest_ruby=$(rbenv install -l | grep -E '^\s*[0-9]+\.[0-9]+\.[0-9]+$' | tail -1 | tr -d ' ')
 rbenv install -s "$latest_ruby"
 rbenv global "$latest_ruby"
 
-log 'Setup Node'
+log 'Set up Node'
 latest_node=$(fnm ls-remote --lts --latest | awk '{print $1}')
 # インストール済みの版を fnm install すると警告が出るため、未インストールの場合のみ入れる
 fnm ls | grep -qw "$latest_node" || fnm install "$latest_node"
@@ -144,15 +134,15 @@ fnm exec --using=default playwright-cli install --skills --global
 # ダウンロードがタイムアウトする。IPv4 を優先させて回避する
 NODE_OPTIONS=--dns-result-order=ipv4first fnm exec --using=default playwright-cli install-browser webkit
 
-log 'Install LSP servers'
+log 'Install language tools'
 pnpm add -g typescript-language-server typescript
 go install golang.org/x/tools/gopls@latest
 go install github.com/go-delve/delve/cmd/dlv@latest
 go install honnef.co/go/tools/cmd/staticcheck@latest
 gem install ruby-lsp
 
-log 'Configuring macOS default settings'
+log 'Configure macOS default settings'
 # 設定アプリなどで変えた値を上書きしないよう、オプション指定時のみ書き込む。指定がなければ差分を表示する
-"$STOW_PACKAGES_PATH"/cli/scripts/macos-defaults.sh ${macos_defaults:+--apply}
+"$STOW_PACKAGES_PATH"/cli/scripts/macos-defaults.sh ${apply_macos_defaults:+--apply}
 
-log 'Finish!!'
+log 'Finish'

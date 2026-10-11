@@ -1,4 +1,4 @@
-# Homebrew の PATH、補完の置き場所、man の場所などをまとめて設定する（Homebrew 公式の方法）
+# Homebrew の PATH、補完の置き場所、man の場所などをまとめて設定する
 # 補完の置き場所は compinit より前に登録する必要があるため先頭で設定する
 eval "$(/opt/homebrew/bin/brew shellenv)"
 

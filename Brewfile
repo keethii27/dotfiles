@@ -1,5 +1,3 @@
-cask_args appdir: "/Applications"
-
 ## util
 brew "coreutils"
 brew "curl"
@@ -12,7 +10,6 @@ brew "nkf"
 brew "ripgrep"
 brew "tealdeer"
 brew "tree"
-brew "tree-sitter"
 brew "watch"
 brew "yq"
 brew "zoxide"
@@ -42,10 +39,6 @@ brew "docker"
 brew "docker-compose"
 
 ## other
-# brew "mysql@5.7"
-# brew "openssl"
-# brew "postgresql@14"
-# brew "shared-mime-info" # mimemagic gem
 brew "starship"
 brew "stow"
 
@@ -62,12 +55,9 @@ cask "google-chrome"
 cask "google-japanese-ime"
 cask "iterm2"
 cask "logi-options+"
-# cask "mysqlworkbench"
 cask "raycast"
-# cask "sequel-pro"
 cask "shottr"
 cask "slack"
-# cask "sourcetree"
 cask "tableplus"
 cask "visual-studio-code"
 cask "zoom"

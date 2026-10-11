@@ -49,15 +49,9 @@ if [ -n "$unlink_packages" ]; then
     exit
 fi
 
-if [ "$(dscl . -read ~/ UserShell)" = "UserShell: /bin/bash" ]; then
-    log 'Change default shell to zsh'
-    chsh -s /bin/zsh
-fi
-
 if ! is_file /opt/homebrew/bin/brew; then
     log 'Set up Homebrew'
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    /opt/homebrew/bin/brew doctor || true
 fi
 
 # .zshrc はまだ読み込まれていないため、以降で使うツールの PATH をここで通す
@@ -107,11 +101,10 @@ log 'Install Cargo packages'
 cargo install tree-sitter-cli
 
 log 'Set up Go'
-latest_go=$(goenv install -l | grep -E '^\s*[0-9]+\.[0-9]+\.[0-9]+$' | tail -1 | tr -d ' ')
 # goenv が Go のインストール時にツールを自動で入れると GOPATH と GOROOT が同じという警告が出るため止め、ツールは下で入れる
 goenv tools default-tools disable
-# 未インストールの場合はインストールしてから、既定の版にする。スクリプトからは確認できないため --yes を付ける
-goenv use "$latest_go" --global --yes
+# 最新の安定版を、未インストールの場合はインストールしてから既定の版にする。スクリプトからは確認できないため --yes を付ける
+goenv use --global --yes
 
 log 'Set up Ruby'
 latest_ruby=$(rbenv install -l | grep -E '^\s*[0-9]+\.[0-9]+\.[0-9]+$' | tail -1 | tr -d ' ')

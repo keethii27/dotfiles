@@ -17,7 +17,7 @@ while [ $# -gt 0 ]; do
             apply_claude_settings=1 ;;
         -m|--macos-defaults)
             apply_macos_defaults=1 ;;
-        # 複数指定できる（-u terminal -u git）
+        # 複数指定できる（-u zsh -u git）
         -u|--unlink)
             unlink_packages="$unlink_packages $2"
             shift ;;
@@ -101,7 +101,7 @@ log 'Configure Claude Code settings'
 if ! is_file ~/.claude/settings.json; then
     apply_claude_settings=1
 fi
-"$STOW_PACKAGES_PATH"/cli/scripts/claude-settings.sh ${apply_claude_settings:+--apply}
+"$STOW_PACKAGES_PATH"/scripts/scripts/claude-settings.sh ${apply_claude_settings:+--apply}
 
 log 'Install Cargo packages'
 cargo install tree-sitter-cli
@@ -143,6 +143,6 @@ gem install ruby-lsp
 
 log 'Configure macOS default settings'
 # 設定アプリなどで変えた値を上書きしないよう、オプション指定時のみ書き込む。指定がなければ差分を表示する
-"$STOW_PACKAGES_PATH"/cli/scripts/macos-defaults.sh ${apply_macos_defaults:+--apply}
+"$STOW_PACKAGES_PATH"/scripts/scripts/macos-defaults.sh ${apply_macos_defaults:+--apply}
 
 log 'Finish'

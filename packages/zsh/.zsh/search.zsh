@@ -38,5 +38,6 @@ function fgs {
     local branches branch
     branches=$(git --no-pager branch -vv --color=always) &&
     branch=$(echo "$branches" | fzf --preview=) &&
-    git switch "$(echo "$branch" | awk '{print $1}' | sed "s/.* //")"
+    # 行頭の記号（今のブランチの *、別の作業ツリーで使っているブランチの +）を除いてからブランチ名を取り出す
+    git switch "$(echo "$branch" | sed 's/^[*+ ]*//' | awk '{print $1}')"
 }

@@ -5,17 +5,14 @@ set -e
 GIT_CLONE_PATH=~/src/github.com/keethii27
 STOW_PACKAGES_PATH="$GIT_CLONE_PATH"/dotfiles/packages
 
-skip_apps=
-verbose=
+skip_brew=
 claude_settings=
 macos_defaults=
 unlink_packages=
 while [ $# -gt 0 ]; do
     case "$1" in
-        -s|--skip-apps)
-            skip_apps=1 ;;
-        -v|--verbose)
-            verbose=1 ;;
+        -s|--skip-brew)
+            skip_brew=1 ;;
         -c|--claude-settings)
             claude_settings=1 ;;
         -m|--macos-defaults)
@@ -84,9 +81,9 @@ if ! is_dir "$GIT_CLONE_PATH"/dotfiles; then
     git clone https://github.com/keethii27/dotfiles.git
 fi
 
-if [ ! "$skip_apps" ]; then
-    log 'Install Apps and CLIs'
-    brew bundle --file "$GIT_CLONE_PATH"/dotfiles/Brewfile ${verbose:+-v}
+if [ ! "$skip_brew" ]; then
+    log 'Install Homebrew packages'
+    brew bundle --file "$GIT_CLONE_PATH"/dotfiles/Brewfile
 fi
 
 log 'Link dotfiles'

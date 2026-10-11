@@ -98,9 +98,6 @@ vscode "wayou.vscode-todo-highlight"
 
 ## personal only
 if ENV["HOMEBREW_MACHINE_TYPE"] == "personal"
-  ## backup
-  brew "mackup"
-
   ## apps
   cask "appcleaner"
   cask "docker-desktop"

@@ -13,8 +13,8 @@ alias ..4='cd ../../../..'
 alias vi="nvim"
 
 # grep
-alias g='grep --color=always'
-alias grep='grep --color=always'
+alias g='grep --color=auto'
+alias grep='grep --color=auto'
 
 alias pr="gh pr view --web"
 alias fzf='fzf --preview "head -100 {}"'

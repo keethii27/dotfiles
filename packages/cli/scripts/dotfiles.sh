@@ -10,25 +10,23 @@ verbose=
 claude_settings=
 macos_defaults=
 unlink_packages=
-for i in "$@"; do
-    case "$i" in
+while [ $# -gt 0 ]; do
+    case "$1" in
         -s|--skip-apps)
-            skip_apps=1
-            shift ;;
+            skip_apps=1 ;;
         -v|--verbose)
-            verbose=1
-            shift ;;
+            verbose=1 ;;
         -c|--claude-settings)
-            claude_settings=1
-            shift ;;
+            claude_settings=1 ;;
         -m|--macos-defaults)
-            macos_defaults=1
-            shift ;;
-        -u=*|--unlink=*)
-            unlink_packages="${i#*=}"
+            macos_defaults=1 ;;
+        # 複数指定できる（-u terminal -u git）
+        -u|--unlink)
+            unlink_packages="$unlink_packages $2"
             shift ;;
         *) ;;
     esac
+    shift
 done
 
 log() {
@@ -55,7 +53,9 @@ ensure_dir() {
 
 if [ -n "$unlink_packages" ]; then
     log 'Unlinking dotfiles...'
-    stow -vD -d "$STOW_PACKAGES_PATH" -t ~ "$unlink_packages"
+    for package in $unlink_packages; do
+        stow -vD -d "$STOW_PACKAGES_PATH" -t ~ "$package"
+    done
     exit
 fi
 
@@ -104,8 +104,9 @@ for target in \
 done
 
 # --no-folding: ディレクトリごとリンクすると、アプリが書き込むファイルがリポジトリに入るため
-# shellcheck disable=SC2046
-stow -v --no-folding -d "$STOW_PACKAGES_PATH" -t ~ $(ls $STOW_PACKAGES_PATH)
+for package in "$STOW_PACKAGES_PATH"/*/; do
+    stow -v --no-folding -d "$STOW_PACKAGES_PATH" -t ~ "$(basename "$package")"
+done
 
 # Claude Code 自身が書き込んだ変更を上書きしないよう、既存の端末ではオプション指定時のみ生成する
 if [ "$claude_settings" ] || ! is_file ~/.claude/settings.json; then

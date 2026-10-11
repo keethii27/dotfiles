@@ -97,11 +97,8 @@ if ! is_file ~/.claude/settings.json; then
 fi
 "$STOW_PACKAGES_PATH"/scripts/scripts/claude-settings.sh ${apply_claude_settings:+--apply}
 
-log 'Install Cargo packages'
-cargo install tree-sitter-cli
-
 log 'Set up Go'
-# goenv が Go のインストール時にツールを自動で入れると GOPATH と GOROOT が同じという警告が出るため止め、ツールは下で入れる
+# goenv が Go のインストール時にツールを自動で入れると GOPATH と GOROOT が同じという警告が出るため止める。ツールは Brewfile で入れる
 goenv tools default-tools disable
 # 最新の安定版を、未インストールの場合はインストールしてから既定の版にする。スクリプトからは確認できないため --yes を付ける
 goenv use --global --yes
@@ -129,9 +126,6 @@ NODE_OPTIONS=--dns-result-order=ipv4first fnm exec --using=default playwright-cl
 
 log 'Install language tools'
 pnpm add -g typescript-language-server typescript
-go install golang.org/x/tools/gopls@latest
-go install github.com/go-delve/delve/cmd/dlv@latest
-go install honnef.co/go/tools/cmd/staticcheck@latest
 gem install ruby-lsp
 
 log 'Configure macOS default settings'

@@ -20,9 +20,12 @@ brew "ghq"
 brew "git"
 
 ## editor
+brew "delve"
+brew "gopls"
 brew "lua-language-server"
 brew "neovim"
 brew "shellcheck"
+brew "tree-sitter-cli"
 
 ## language
 brew "fnm"

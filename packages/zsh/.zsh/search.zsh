@@ -5,22 +5,12 @@ function is_in_git_repo() {
     git rev-parse HEAD > /dev/null 2>&1
 }
 
-# Ctrl + R = history search
-function fzf-history-selection() {
-    BUFFER=$(history -n 1 | tac  | awk '!a[$0]++' | fzf --no-sort --preview=)
-    # shellcheck disable=SC2034
-    CURSOR=$#BUFFER
-    zle reset-prompt
-}
-zle -N fzf-history-selection
-bindkey '^R' fzf-history-selection
-
 # Ctrl + G = ghq list
 function fzf-ghq-look () {
     local selected_dir
     selected_dir=$(ghq list | fzf --preview=)
     if [ -n "$selected_dir" ]; then
-        BUFFER="cd $(ghq list --full-path | grep --color=never -E "/$selected_dir$")"
+        BUFFER="cd $(ghq root)/$selected_dir"
         zle accept-line
     fi
 }

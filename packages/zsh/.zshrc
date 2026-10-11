@@ -8,10 +8,9 @@ source ~/.zsh/plugins.zsh
 # 保存数を増やす
 export HISTFILE=~/.zsh_history
 export HISTSIZE=100000
-export SAVEHIST=1000000
-# コマンドが入力されるとすぐに追加
-setopt inc_append_history
-# 同時に起動しているzshの間でhistoryを共有する
+# メモリ上の件数（HISTSIZE）を超える分は保存されないため同じ値にする
+export SAVEHIST=100000
+# 同時に起動しているzshの間でhistoryを共有する（コマンドを打つたびに保存もされる）
 setopt share_history
 # 直前と同じコマンドの場合は履歴に追加しない
 setopt hist_ignore_dups
@@ -34,10 +33,8 @@ export LESS='-R'
 ## option
 # ファイル種別の記号を補完候補の末尾から非表示
 unsetopt list_types
-# ビープ音の停止
+# ビープ音の停止（補完時を含む）
 setopt no_beep
-# ビープ音の停止(補完時)
-setopt nolistbeep
 # 環境変数を補完
 setopt AUTO_PARAM_KEYS
 

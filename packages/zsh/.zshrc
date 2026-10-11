@@ -46,9 +46,10 @@ export PATH=$PATH:$HOME/scripts
 eval "$(starship init zsh)"
 # zoxide
 eval "$(zoxide init zsh --cmd cd)"
-# fzf
-source /opt/homebrew/opt/fzf/shell/completion.zsh
-source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
+# fzf（キー操作の機能は端末でしか使えないため、端末がないときは読み込まない）
+if [[ -t 0 ]]; then
+    source <(fzf --zsh)
+fi
 
 ## version managers
 # goenv

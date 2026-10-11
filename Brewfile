@@ -3,6 +3,7 @@ cask_args appdir: "/Applications"
 ## util
 brew "coreutils"
 brew "curl"
+brew "fd" # Neovim の telescope.nvim のファイル検索で使う
 brew "fzf"
 brew "grep"
 brew "jq"
@@ -22,6 +23,7 @@ brew "ghq"
 brew "git"
 
 ## editor
+brew "lua-language-server"
 brew "neovim"
 brew "shellcheck"
 

@@ -75,12 +75,15 @@ source /opt/homebrew/share/google-cloud-sdk/path.zsh.inc
 source /opt/homebrew/share/google-cloud-sdk/completion.zsh.inc
 
 ## tab title
-# ログイン時
-echo -ne "\033]0;$(pwd | rev | awk -F "/" '{print "/"$1"/"$2}'| rev)\007"
-# ディレクトリが変わった時
-function chpwd() {
-    echo -ne "\033]0;$(pwd | rev | awk -F "/" '{print "/"$1"/"$2}'| rev)\007"
-}
+# 端末でない環境（スクリプトや Claude Code など）では制御文字が出力に混ざるため、端末のときだけ設定する
+if [[ -t 1 ]]; then
+    set_tab_title() {
+        print -n "\e]0;${PWD:h:t}/${PWD:t}/\a"
+    }
+    autoload -Uz add-zsh-hook
+    add-zsh-hook chpwd set_tab_title
+    set_tab_title
+fi
 
 ## sub files
 source ~/.zsh/alias.zsh

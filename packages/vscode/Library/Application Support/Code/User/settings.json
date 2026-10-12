@@ -19,7 +19,6 @@
   "dev.containers.gitCredentialHelperConfigLocation": "none",
   "remote.autoForwardPortsSource": "hybrid",
   "go.toolsManagement.autoUpdate": true,
-  "solargraph.diagnostics": true,
   "redhat.telemetry.enabled": false,
   "yaml.disableSchemaDetection": [
     "**/.github/workflows/*.yml",

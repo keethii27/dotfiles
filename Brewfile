@@ -72,7 +72,6 @@ cask "zoom"
 
 ## vscode extensions
 vscode "anthropic.claude-code"
-vscode "castwide.solargraph"
 vscode "davidanson.vscode-markdownlint"
 vscode "eamodio.gitlens"
 vscode "ecmel.vscode-html-css"

@@ -101,6 +101,9 @@ vscode "wayou.vscode-todo-highlight"
 
 ## personal only
 if ENV["HOMEBREW_MACHINE_TYPE"] == "personal"
+  ## database
+  brew "mysql-client" # Ruby の mysql2 gem のビルドで使う
+
   ## infra
   cask "session-manager-plugin"
 
